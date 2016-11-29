@@ -45,10 +45,27 @@
 
 }
 
-.main > h2 {
-    font-family: 'Raleway', sans-serif;
+
+ul {
+    padding: 0;
+}
+
+.main {
+
+}
+
+.main > h3 {
+    font-family: 'Playfair Display', serif;
 }
 
 #articles {
     font-family: 'Raleway', sans-serif;
+    height: 380px;
+    overflow-y: auto;
+}
+
+#articles, a { color: red;}
+#articles, a:hover {
+    color: black;
+    text-decoration: none;
 }

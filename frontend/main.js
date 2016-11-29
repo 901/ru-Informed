@@ -5,17 +5,18 @@ $(document).ready(function() {
 
     mainAngular.controller('TopicController', function($scope, $http) {
       //var hCat=  "./customAngular/headerCatalogue.json";
-      var hCat = 'categories.json'
-      var articles = 'articles-taxes.json'
+      var hCat = 'https://vast-sierra-64531.herokuapp.com/v1/categories'
 
       $scope.catgeories = [];
       //$scope.currentArticles = [];
+      $scope.currentCategory = 'Select a category in the pie chart to find related articles';
 
-      $scope.selectCategory = function(x, y){
+      $scope.selectCategory = function(topic, y){
 
-         console.log(x, y);
-         $http.get('articles-national-security.json').success(function(response){
+         console.log(topic, y);
+         $http.get('https://vast-sierra-64531.herokuapp.com/v1/articles?category=' + topic).success(function(response){
              $scope.currentArticles = response;
+             $scope.currentCategory = topic;
          });
      };
 

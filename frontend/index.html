@@ -33,7 +33,7 @@
         <div class="row header">
             <h1>RU Informed?</h1>
         </div>
-        <div class="row" ng-controller="TopicController">
+        <div class="row view" ng-controller="TopicController">
            <div class="offset-sm-1 col-sm-4 sidebar">
               <!--<ul class="nav nav-about">
                    <li><h2>about</h2></li>
@@ -48,10 +48,10 @@
                </ul>-->
             </div>
             <div class="col-sm-7 offset-sm-5 main">
-                <h2>Select a category in the pie chart to find related articles</h2>
+                <h3>{{currentCategory}}</h3>
                 <div id="articles">
                     <ul ng-repeat="article in currentArticles.articles" style="list-style: none;">
-                        <li class="active"><a ng-href={{article.url}}><h3>{{article.name}}</h3></a></li>
+                        <li class="active"><a ng-href={{article.url}}><h4>{{article.name}}</h4></a></li>
                     </ul>
                 </div>
             </div>
