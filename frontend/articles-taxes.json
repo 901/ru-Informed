@@ -1,0 +1,845 @@
+{
+  "articles": [
+    {
+      "date": "2016-09-30",
+      "id": 236,
+      "name": "Keep the Tax Returns, Trump; Just Give Us a Few Figures",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/30/business/2-numbers-can-answer-the-donald-trump-tax-question.html"
+    },
+    {
+      "date": "2016-09-30",
+      "id": 818,
+      "name": "An Uncharitable Foundation",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/30/opinion/an-uncharitable-foundation.html"
+    }, 
+    {
+      "date": "2016-09-28",
+      "id": 803,
+      "name": "Hillary Clinton\u00e2\u20ac\u2122s Mistake on Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/28/opinion/campaign-stops/hillary-clintons-mistake-on-taxes.html"
+    },
+    {
+      "date": "2016-09-28",
+      "id": 820,
+      "name": "Does Donald Trump Pay Taxes? Here\u00e2\u20ac\u2122s What We Know",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/28/us/politics/donald-trump-taxes.html"
+    },
+    {
+      "date": "2016-09-27",
+      "id": 804,
+      "name": "Trump Talks Taxes and Clinton\u00e2\u20ac\u2122s Emails",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/video/us/politics/100000004673201/trump-talks-taxes-and-clintons-emails.html"
+    },
+    {
+      "date": "2016-09-26",
+      "id": 821,
+      "name": "Clinton, Trump Battle Fiercely Over Taxes, Race, Terror",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/09/26/us/politics/ap-us-campaign-2016-debate.html"
+    },
+    {
+      "date": "2016-09-23",
+      "id": 806,
+      "name": "Apple in Ireland",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/23/opinion/apple-in-ireland.html"
+    },
+    {
+      "date": "2016-09-23",
+      "id": 112,
+      "name": "Global Economy, Taxes to Dominate Washington's G20 Agenda-Russia",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/09/23/business/23reuters-g20-agenda-russia.html"
+    },
+    {
+      "date": "2016-09-22",
+      "id": 812,
+      "name": "Poverty, Taxes and the Candidates",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/22/opinion/poverty-taxes-and-the-candidates.html"
+    },
+    {
+      "date": "2016-09-21",
+      "id": 817,
+      "name": "Mr. Trump\u00e2\u20ac\u2122s Stupid Excuses on Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/21/opinion/mr-trumps-stupid-excuses-on-taxes.html"
+    },
+    {
+      "date": "2016-09-21",
+      "id": 814,
+      "name": "How Companies Like Apple Dodge Taxes and Their Own Investors",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/21/opinion/how-companies-like-apple-dodge-taxes-and-their-own-investors.html"
+    },
+    {
+      "date": "2016-09-20",
+      "id": 808,
+      "name": "E.U., Accused of Bias Against U.S. Companies, Opens Tax Inquiry Into French Utility",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/20/business/international/europe-us-tax-luxembourg-engie-vestager.html"
+    },
+    {
+      "date": "2016-09-18",
+      "id": 829,
+      "name": "At Last, Your Financial Aid Ordeal Has Gotten Easier",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/18/upshot/at-last-a-little-breathing-room-in-the-financial-aid-gantlet.html"
+    },
+    {
+      "date": "2016-09-17",
+      "id": 811,
+      "name": "Conflicting Policy From Trump: To Keep, and Remove, Tax Cut",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/17/us/politics/trump-tax-plan.html"
+    },
+    {
+      "date": "2016-09-16",
+      "id": 824,
+      "name": "One Beneficiary of Clinton\u00e2\u20ac\u2122s Complex Tax Plan: Tax Lawyers",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/16/business/one-beneficiary-of-clintons-complex-tax-plan-tax-lawyers.html"
+    },
+    {
+      "date": "2016-09-16",
+      "id": 815,
+      "name": "Stewart on Trump\u00e2\u20ac\u2122s Tax Plan",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/video/business/100000004651992/stewart-on-trumps-tax-plan.html"
+    },
+    {
+      "date": "2016-09-15",
+      "id": 826,
+      "name": "Indonesia to Investigate Google Over Possible Unpaid Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/09/15/business/15reuters-indonesia-google.html"
+    },
+    {
+      "date": "2016-09-14",
+      "id": 816,
+      "name": "Jerry Brown\u00e2\u20ac\u2122s Disappointing Tampon Tax Decision",
+      "source": "nytimes",
+      "url": "http://takingnote.blogs.nytimes.com/2016/09/14/jerry-browns-disappointing-tampon-tax-decision/"
+    },
+    {
+      "date": "2016-09-13",
+      "id": 807,
+      "name": "Treasury Secretary on Apple\u00e2\u20ac\u2122s Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/video/business/international/100000004644123/treasury-secretary-on-apples-taxes.html"
+    },
+    {
+      "date": "2016-09-12",
+      "id": 825,
+      "name": "Ireland Doesn\u00e2\u20ac\u2122t Want Apple\u00e2\u20ac\u2122s Back Taxes, but the Irish Aren\u00e2\u20ac\u2122t So Sure",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/12/business/international/ireland-doesnt-want-apples-back-taxes-but-the-irish-arent-so-sure.html"
+    },
+    {
+      "date": "2016-09-12",
+      "id": 229,
+      "name": "In Connecticut, a Wealth Gap Divides Neighboring Schools",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/12/nyregion/in-connecticut-a-wealth-gap-divides-neighboring-schools.html"
+    },
+    {
+      "date": "2016-09-11",
+      "id": 809,
+      "name": "Why Taxing Fairly Means Not Taxing Inheritances",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/11/upshot/why-taxing-fairly-means-not-taxing-inheritances.html"
+    },
+    {
+      "date": "2016-09-09",
+      "id": 827,
+      "name": "France to Trim Income Taxes for Households, Companies",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/09/09/world/europe/ap-eu-france-taxes.html"
+    },
+    {
+      "date": "2016-09-09",
+      "id": 813,
+      "name": "Measure 97, Seeking to Raise Corporate Taxes, Splits Oregon Voters",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/09/us/measure-97-seeking-to-raise-corporate-taxes-splits-oregon-voters.html"
+    },
+    {
+      "date": "2016-09-08",
+      "id": 810,
+      "name": "Ending Apple\u00e2\u20ac\u2122s Offshore Tax Dodge",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/08/opinion/ending-apples-offshore-tax-dodge.html"
+    },
+    {
+      "date": "2016-09-08",
+      "id": 819,
+      "name": "Elizabeth Warren: What Apple Teaches Us About Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/08/opinion/elizabeth-warren-what-apple-teaches-us-about-taxes.html"
+    },
+    {
+      "date": "2016-09-03",
+      "id": 822,
+      "name": "How Students and Parents Can Spot I.R.S. Impersonators",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/03/your-money/how-to-spot-irs-impersonators.html"
+    },
+    {
+      "date": "2016-09-03",
+      "id": 823,
+      "name": "Donald Trump\u00e2\u20ac\u2122s Tax-Cut Plan: A Boon for the Wealthy",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/03/opinion/donald-trumps-tax-cut-plan-a-boon-for-the-wealthy.html"
+    },
+    {
+      "date": "2016-09-02",
+      "id": 805,
+      "name": "Tim Cook, Apple Chief, Defends Tax Practices and Says Cash Will Return to U.S.",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/02/technology/apple-tax-ireland-tim-cook.html"
+    },
+    {
+      "date": "2016-09-01",
+      "id": 828,
+      "name": "Why This Economy Needs Donald Trump",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/09/01/opinion/why-this-economy-needs-donald-trump.html"
+    },
+    {
+      "date": "2016-08-30",
+      "id": 775,
+      "name": "Apple to Pay $14.5 Billion in Back Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/video/world/europe/100000004618328/apple-to-pay-145-billion-in-back-taxes.html"
+    },
+    {
+      "date": "2016-08-30",
+      "id": 786,
+      "name": "Kaine Slams Trump for Not Disclosing Taxes, Foreign Ties",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/08/30/us/politics/ap-us-campaign-2016-kaine.html"
+    },
+    {
+      "date": "2016-08-30",
+      "id": 779,
+      "name": "Morning Agenda: Truck of Takata Airbag Parts Explodes, Apple Faces Taxes, Mondelez Abandons Hershey",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/30/business/dealbook/mondelez-hershey-apple-tax-takata.html"
+    },
+    {
+      "date": "2016-08-30",
+      "id": 784,
+      "name": "Apple Is Said to Owe Back Taxes to Irish Government",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/30/technology/apple-is-said-to-owe-back-taxes-to-irish-government.html"
+    },
+    {
+      "date": "2016-08-30",
+      "id": 795,
+      "name": "A Look at Companies the EU Is Chasing for Back Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/08/30/business/ap-us-europe-apple-tax-glance.html"
+    },
+    {
+      "date": "2016-08-29",
+      "id": 787,
+      "name": "Finnish Government to Cut Taxes After Labour Reform Deal",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/08/29/business/29reuters-finland-economy.html"
+    },
+    {
+      "date": "2016-08-25",
+      "id": 776,
+      "name": "More Evidence That Soda Taxes Cut Soda Drinking",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/25/upshot/more-evidence-that-soda-taxes-cut-soda-drinking.html"
+    },
+    {
+      "date": "2016-08-24",
+      "id": 778,
+      "name": "Treasury Blasts European Tax Investigation of Multinationals",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/08/24/business/ap-us-europe-tax-probes.html"
+    },
+    {
+      "date": "2016-08-23",
+      "id": 789,
+      "name": "Judge: Florida Tribe's Members Must Pay Taxes to IRS",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/08/23/us/ap-us-miccosukee-tribe-irs.html"
+    },
+    {
+      "date": "2016-08-22",
+      "id": 782,
+      "name": "The Debate Over Taxes That Isn\u00e2\u20ac\u2122t Happening",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/22/us/politics/donald-trump-hillary-clinton-the-debate-over-taxes-that-isnt-happening.html"
+    },
+    {
+      "date": "2016-08-22",
+      "id": 788,
+      "name": "A Pot of Money: Oregon Collects $25.5M in Marijuana Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/08/22/us/ap-us-recreational-marijuana-oregon-taxes.html"
+    },
+    {
+      "date": "2016-08-19",
+      "id": 799,
+      "name": "The Odd Olympics: Japan\u00e2\u20ac\u2122s Prime Minister Dresses Up as Super Mario",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/19/sports/olympics/the-odd-the-weird-and-the-unexplained-from-the-rio-olympics.html"
+    },
+    {
+      "date": "2016-08-18",
+      "id": 777,
+      "name": "Hillary Clinton Twists the Knife in Donald Trump\u00e2\u20ac\u2122s Tax Proposals",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/18/us/politics/hillary-clinton-twists-the-knife-in-donald-trumps-tax-proposals.html"
+    },
+    {
+      "date": "2016-08-18",
+      "id": 781,
+      "name": "Why Won\u00e2\u20ac\u2122t Trump Release His Taxes?",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/18/opinion/why-wont-trump-release-his-taxes.html"
+    },
+    {
+      "date": "2016-08-17",
+      "id": 796,
+      "name": "Detroit Threatening Lawsuits to Recoup Back Property Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/08/17/us/ap-us-property-taxes-detroit.html"
+    },
+    {
+      "date": "2016-08-17",
+      "id": 790,
+      "name": "Clinton Criticizes Trump\u00e2\u20ac\u2122s Tax Plan",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/video/us/politics/100000004597982/clinton-criticizes-trumps-tax-plan.html"
+    },
+    {
+      "date": "2016-08-17",
+      "id": 794,
+      "name": "Detroit Readies 600 Lawsuits Over Unpaid Property Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/08/17/us/17reuters-detroit-tax.html"
+    },
+    {
+      "date": "2016-08-17",
+      "id": 791,
+      "name": "Trump Casinos\u00e2\u20ac\u2122 Tax Debt Was $30 Million. Then Christie Took Office.",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/17/us/politics/trump-chris-christie-casinos.html"
+    },
+    {
+      "date": "2016-08-15",
+      "id": 783,
+      "name": "Mark Sanford: I Support You, Donald Trump. Now Release Your Tax Returns.",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/15/opinion/i-support-you-donald-trump-now-release-your-tax-returns.html"
+    },
+    {
+      "date": "2016-08-14",
+      "id": 801,
+      "name": "Mike Pence May Break With Donald Trump, Again, Over Tax Returns",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/14/us/politics/mike-pence-taxes.html"
+    },
+    {
+      "date": "2016-08-13",
+      "id": 663,
+      "name": "Trump\u00e2\u20ac\u2122s Misguided Embrace of Tax Cuts",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/13/opinion/campaign-stops/trumps-misguided-embrace-of-tax-cuts.html"
+    },
+    {
+      "date": "2016-08-13",
+      "id": 797,
+      "name": "Hillary Clinton and Tim Kaine Show New Tax Returns, Pressuring Donald Trump",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/13/us/politics/hillary-clinton-tim-kaine-taxes.html"
+    },
+    {
+      "date": "2016-08-13",
+      "id": 780,
+      "name": "How Hillary Clinton and Donald Trump Differ on Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/13/upshot/how-hillary-clinton-and-donald-trump-differ-on-taxes.html"
+    },
+    {
+      "date": "2016-08-12",
+      "id": 792,
+      "name": "James B. Stewart on Trump's Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/video/business/100000004588071/james-b-stewart-on-trumps-taxes.html"
+    },
+    {
+      "date": "2016-08-12",
+      "id": 798,
+      "name": "Pieces of Silver",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/12/opinion/pieces-of-silver.html"
+    },
+    {
+      "date": "2016-08-09",
+      "id": 785,
+      "name": "Donald Trump Adopts G.O.P. Tax Cuts, but Balks at Trade Pacts",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/09/us/politics/donald-trump-economy-speech.html"
+    },
+    {
+      "date": "2016-08-09",
+      "id": 131,
+      "name": "Fact-Checking Donald Trump\u00e2\u20ac\u2122s Economic Speech",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/09/us/politics/donald-trump-fact-check.html"
+    },
+    {
+      "date": "2016-08-08",
+      "id": 800,
+      "name": "Cash-Starved Burundi Reports Stronger Inflow From Domestic Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/08/08/world/africa/08reuters-burundi-tax.html"
+    },
+    {
+      "date": "2016-08-06",
+      "id": 793,
+      "name": "Back-to-School Sales Tax Holidays May Be Skimpier This Year",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/08/06/your-money/back-to-school-sales-tax-holidays-may-be-skimpier-this-year.html"
+    },
+    {
+      "date": "2016-08-05",
+      "id": 802,
+      "name": "Clinton Released Her Taxes. Will Trump Follow This Tradition?",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/interactive/2016/08/05/us/elections/presidential-tax-returns.html"
+    },
+    {
+      "date": "2016-07-29",
+      "id": 751,
+      "name": "Reporting an \u00e2\u20ac\u02dcI.R.S.\u00e2\u20ac\u2122 Telephone Scam",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/29/technology/personaltech/reporting-an-irs-telephone-scam.html"
+    },
+    {
+      "date": "2016-07-29",
+      "id": 763,
+      "name": "Morning Agenda: Profits Tumble at European Banks",
+      "source": "nytimes",
+      "url": "http://news.blogs.nytimes.com/2016/07/29/morning-agenda-profits-tumble-at-european-banks/"
+    },
+    {
+      "date": "2016-07-26",
+      "id": 748,
+      "name": "For Yahoo, Question Is What to Do With $40 Billion in Leftovers",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/26/business/dealbook/for-yahoo-question-is-what-to-do-with-40-billion-in-leftovers.html"
+    },
+    {
+      "date": "2016-07-24",
+      "id": 745,
+      "name": "A Profit Bump for Companies, and Tax Transparency for Investors",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/24/business/a-profit-bump-for-companies-and-tax-transparency-for-investors.html"
+    },
+    {
+      "date": "2016-07-23",
+      "id": 774,
+      "name": "Ex-KKK Leader Duke Tries Political Comeback in US Senate Run",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/23/us/ap-us-senate-david-duke.html"
+    },
+    {
+      "date": "2016-07-21",
+      "id": 772,
+      "name": "New York Repeals Sales Tax on Tampons and Sanitary Napkins",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/21/us/ap-us-tampon-tax.html"
+    },
+    {
+      "date": "2016-07-20",
+      "id": 750,
+      "name": "Gagosian Gallery to Pay New York State $4.3 Million",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/20/arts/design/gagosian-gallery-to-pay-new-york-state-4-3-million.html"
+    },
+    {
+      "date": "2016-07-20",
+      "id": 758,
+      "name": "New Jersey Drivers Fume as Road and Bridge Work Stops",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/20/nyregion/new-jersey-roads-chris-christie.html"
+    },
+    {
+      "date": "2016-07-20",
+      "id": 762,
+      "name": "Gagosian Art Dealer Agrees to Pay $4 Million in Back Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/20/us/ap-us-gagosian-gallery-tax-settlement.html"
+    },
+    {
+      "date": "2016-07-16",
+      "id": 766,
+      "name": "The Carried Interest Loophole? What Loophole?",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/16/business/dealbook/the-carried-interest-loophole-what-loophole.html"
+    },
+    {
+      "date": "2016-07-15",
+      "id": 770,
+      "name": "Trump Demanded VP Candidate Tax Docs He Won't Make Public",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/15/us/politics/ap-us-gop-2016-trump-tax-returns.html"
+    },
+    {
+      "date": "2016-07-13",
+      "id": 764,
+      "name": "Morning Agenda: Lawyers in Line of Fire at Delaware Courts",
+      "source": "nytimes",
+      "url": "http://news.blogs.nytimes.com/2016/07/13/morning-agenda-lawyers-in-line-of-fire-at-delaware-courts/"
+    },
+    {
+      "date": "2016-07-13",
+      "id": 756,
+      "name": "US Brings WTO Case Against Chinese Taxes on Raw Materials",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/13/us/politics/ap-us-china-trade-raw-materials.html"
+    },
+    {
+      "date": "2016-07-13",
+      "id": 749,
+      "name": "Ireland, Home to U.S. \u00e2\u20ac\u02dcInversions,\u00e2\u20ac\u2122 Sees Huge Growth in G.D.P.",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/13/business/dealbook/ireland-us-tax-inversion.html"
+    },
+    {
+      "date": "2016-07-12",
+      "id": 767,
+      "name": "Hawaii Governor Vetoes Online Lodging Tax-Collection Bill",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/12/us/ap-us-airbnb-tax-collection.html"
+    },
+    {
+      "date": "2016-07-11",
+      "id": 765,
+      "name": "What Trump and the G.O.P. Can Agree On: Tax Cuts for the Rich",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/11/business/what-trump-and-the-gop-can-agree-on-tax-cuts-for-the-rich.html"
+    },
+    {
+      "date": "2016-07-08",
+      "id": 754,
+      "name": "Peabody Asks Court to Be Allowed to Pay Property Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/08/us/ap-us-peabody-property-taxes.html"
+    },
+    {
+      "date": "2016-07-08",
+      "id": 747,
+      "name": "Plan to Curb Tax-Inversion Deals Could Go Too Far",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/08/business/dealbook/plan-to-curb-tax-inversion-deals-could-go-too-far.html"
+    },
+    {
+      "date": "2016-07-07",
+      "id": 753,
+      "name": "Woman Finds Lottery Ticket Worth $470K While Doing Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/07/us/ap-us-year-old-lottery-ticket.html"
+    },
+    {
+      "date": "2016-07-07",
+      "id": 759,
+      "name": "New Jersey to Shut Down Hundreds of Transportation Projects",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/07/nyregion/hundreds-of-transportation-projects-in-new-jersey-are-shutting-down.html"
+    },
+    {
+      "date": "2016-07-06",
+      "id": 768,
+      "name": "P&G Being Investigated by Italian Authorities : Bloomberg",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/07/06/business/06reuters-p-g-italy.html"
+    },
+    {
+      "date": "2016-07-06",
+      "id": 761,
+      "name": "Germany Doesn't Want Post-Brexit 'Race to Bottom' on Taxes-Schaeuble",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/07/06/business/06reuters-britain-eu-germany-tax.html"
+    },
+    {
+      "date": "2016-07-06",
+      "id": 769,
+      "name": "P&G Being Investigated by Italian Authorities-Bloomberg",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/07/06/business/06reuters-pg-investigation.html"
+    },
+    {
+      "date": "2016-07-05",
+      "id": 771,
+      "name": "San Francisco Considers Tax on Tech Companies to Pay for Boom\u00e2\u20ac\u2122s Downside",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/05/us/san-francisco-considers-tax-on-tech-companies-to-pay-for-booms-downside.html"
+    },
+    {
+      "date": "2016-07-05",
+      "id": 773,
+      "name": "UBS Ordered to Hand Over Account Information to French",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/05/world/europe/ap-eu-switzerland-ubs.html"
+    },
+    {
+      "date": "2016-07-04",
+      "id": 760,
+      "name": "Germany, Responding to UK Plan, Says Taxes in EU Should Be Fair",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/07/04/business/04reuters-britain-eu-osborne-germany.html"
+    },
+    {
+      "date": "2016-07-04",
+      "id": 757,
+      "name": "Darling No More: Hollywood Flees Louisiana for Sweeter Taxes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/04/us/ap-us-trouble-in-hollywood-south.html"
+    },
+    {
+      "date": "2016-07-02",
+      "id": 755,
+      "name": "New Cigarette Taxes Could Be on Ballot in Hesitant States",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/07/02/us/ap-us-tobacco-tax-holdouts.html"
+    },
+    {
+      "date": "2016-07-02",
+      "id": 752,
+      "name": "With No Deal on New Jersey Gas Tax, Christie Orders Shutdown of Road Projects",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/02/nyregion/new-jersey-gas-tax-chris-christie-shutdown.html"
+    },
+    {
+      "date": "2016-07-01",
+      "id": 746,
+      "name": "Spanish Tax Authorities Investigate Google",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/07/01/technology/google-spain-tax.html"
+    },
+    {
+      "date": "2016-06-29",
+      "id": 740,
+      "name": "France's Hollande Flags Tax Relief for Voters, Businesses, Banks",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/29/business/29reuters-france-economy-tax.html"
+    },
+    {
+      "date": "2016-06-28",
+      "id": 732,
+      "name": "Osborne Says Taxes Will Rise, Spending Will Be Cut After Brexit",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/28/business/28reuters-britain-eu-osborne-budget.html"
+    },
+    {
+      "date": "2016-06-28",
+      "id": 725,
+      "name": "UK Will Need to Raise Taxes After EU Vote-Osborne",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/28/business/28reuters-britain-eu-osborne-stability.html"
+    },
+    {
+      "date": "2016-06-28",
+      "id": 722,
+      "name": "California Today: How Badly Do You Want That New Rail Line?",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/28/us/california-today-transit-taxes.html"
+    },
+    {
+      "date": "2016-06-28",
+      "id": 733,
+      "name": "UK's Osborne Says Taxes Will Rise, Spending Will Be Cut After Brexit",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/28/business/28reuters-britain-eu-osbrne-budget.html"
+    },
+    {
+      "date": "2016-06-26",
+      "id": 723,
+      "name": "Gov. Christie\u00e2\u20ac\u2122s Toxic School Plan",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/26/opinion/gov-christies-toxic-school-plan.html"
+    },
+    {
+      "date": "2016-06-25",
+      "id": 736,
+      "name": "Tax Dodging on the High Seas",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/25/opinion/tax-dodging-on-the-high-seas.html"
+    },
+    {
+      "date": "2016-06-24",
+      "id": 742,
+      "name": "Ryan, House Republicans Offer Plan to Slice U.S. Tax Rates",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/24/us/politics/24reuters-usa-congress-taxes.html"
+    },
+    {
+      "date": "2016-06-22",
+      "id": 743,
+      "name": "Zambia: Government Shuts Largest Independent Newspaper",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/06/22/world/africa/ap-af-zambia-newspaper-shut.html"
+    },
+    {
+      "date": "2016-06-22",
+      "id": 716,
+      "name": "E.U. Countries Tighten Rules to Counter Tax Avoidance",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/22/business/international/eu-tax-avoidance-rules.html"
+    },
+    {
+      "date": "2016-06-22",
+      "id": 741,
+      "name": "Ex-Credit Suisse Banker Pleads Guilty in Tax Fraud Conspiracy",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/22/business/22reuters-credit-suisse-usa.html"
+    },
+    {
+      "date": "2016-06-21",
+      "id": 735,
+      "name": "Italians Shifted Billions Abroad Last Year to Avoid Tax-Economy Minister",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/21/business/21reuters-italy-tax-evasion.html"
+    },
+    {
+      "date": "2016-06-21",
+      "id": 738,
+      "name": "U.S. State, Local Government Tax Haul Up to $317 Billion in First-Quarter: Census",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/21/us/21reuters-usa-municipals-census.html"
+    },
+    {
+      "date": "2016-06-21",
+      "id": 731,
+      "name": "New York Makes History, with Tampons and Pads",
+      "source": "nytimes",
+      "url": "http://kristof.blogs.nytimes.com/2016/06/21/new-york-makes-history-with-tampons-and-pads/"
+    },
+    {
+      "date": "2016-06-19",
+      "id": 727,
+      "name": "Driven by Campaign Populism, Democrats Unite on Expanding Social Security",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/19/us/politics/driven-by-campaign-populism-democrats-unite-on-expanding-social-security.html"
+    },
+    {
+      "date": "2016-06-17",
+      "id": 721,
+      "name": "Soda Tax Passes in Philadelphia. Advocates Ask: Who\u00e2\u20ac\u2122s Next?",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/17/upshot/soda-tax-passes-in-philadelphia-advocates-ask-whos-next.html"
+    },
+    {
+      "date": "2016-06-16",
+      "id": 157,
+      "name": "Why the I.R.S. Fails to Crack the Small-Business Tax Nut",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/16/business/smallbusiness/why-the-irs-fails-to-crack-the-small-business-tax-nut.html"
+    },
+    {
+      "date": "2016-06-16",
+      "id": 720,
+      "name": "Philadelphia Soda Tax: 2 Sides Weigh In",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/video/business/100000004476792/philadelphia-soda-tax-2-sides-weigh-in.html"
+    },
+    {
+      "date": "2016-06-15",
+      "id": 744,
+      "name": "Osborne: 'Real Money' Leaving Economy Over Brexit Fears-BBC",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/15/business/15reuters-britain-eu-osborne-economy.html"
+    },
+    {
+      "date": "2016-06-12",
+      "id": 729,
+      "name": "Gas Is Going Up, but Maybe Not Enough",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/12/your-money/gas-is-going-up-but-maybe-not-enough.html"
+    },
+    {
+      "date": "2016-06-11",
+      "id": 728,
+      "name": "Some Income the I.R.S. Doesn\u00e2\u20ac\u2122t Need to Know About",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/11/your-money/some-income-the-irs-doesnt-need-to-know-about.html"
+    },
+    {
+      "date": "2016-06-10",
+      "id": 726,
+      "name": "House Opposes Carbon and Oil Taxes in Symbolic Votes",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/reuters/2016/06/10/us/politics/10reuters-usa-energy-taxes.html"
+    },
+    {
+      "date": "2016-06-10",
+      "id": 719,
+      "name": "Novel Strategy Puts Big Soda Tax Within Philadelphia\u00e2\u20ac\u2122s Reach",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/09/upshot/novel-strategy-puts-big-soda-tax-within-philadelphias-reach.html"
+    },
+    {
+      "date": "2016-06-09",
+      "id": 718,
+      "name": "Morning Agenda:  A Bearish George Soros Trades Again",
+      "source": "nytimes",
+      "url": "http://news.blogs.nytimes.com/2016/06/09/morning-agenda-a-bearish-george-soros-trades-again/"
+    },
+    {
+      "date": "2016-06-09",
+      "id": 737,
+      "name": "Finnish Police Pull Accounts at Nordea Due to Offshore Links",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/aponline/2016/06/09/world/europe/ap-eu-finland-offshore-accounts-police.html"
+    },
+    {
+      "date": "2016-06-07",
+      "id": 734,
+      "name": "Panama Papers Point to Tax Evasion",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/07/opinion/panama-papers-point-to-tax-evasion.html"
+    },
+    {
+      "date": "2016-06-06",
+      "id": 724,
+      "name": "Morning Agenda: Credit Suisse Boss Faces Revolt",
+      "source": "nytimes",
+      "url": "http://news.blogs.nytimes.com/2016/06/06/morning-agenda-credit-suisse-boss-faces-revolt/"
+    },
+    {
+      "date": "2016-06-02",
+      "id": 739,
+      "name": "Kansas Lawmakers End Session Without Decision on School Funding",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/02/us/kansas-lawmakers-end-session-without-school-funding-decision.html"
+    },
+    {
+      "date": "2016-06-02",
+      "id": 717,
+      "name": "Abe to Delay Putting Japan\u00e2\u20ac\u2122s Sales Tax Increase Into Effect",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/02/business/international/abe-to-delay-implementing-increase-in-japan-sales-tax.html"
+    },
+    {
+      "date": "2016-06-01",
+      "id": 730,
+      "name": "In China, Homeowners Find Themselves in a Land of Doubt",
+      "source": "nytimes",
+      "url": "http://www.nytimes.com/2016/06/01/business/international/in-china-homeowners-find-themselves-in-a-land-of-doubt.html"
+    }
+  ],
+  "count": 120
+}
