@@ -26,34 +26,38 @@
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="" crossorigin="anonymous"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
 
-    <script src="main.js"></script>
+    <script src="issues.js"></script>
   </head>
   <body ng-app="myApp">
      <div class="container-fluid">
         <div class="row header">
             <span class="title">RU Informed?</span>
         </div>
-        <div class="row view" ng-controller="TopicController">
-           <div class="offset-sm-1 col-sm-4 sidebar">
+        <div class="row view issues" ng-controller="IssueController">
+           <div class="col-sm-5 top-10">
+               <div class="about">Are we really consuming information about what we care about during this election season? A closer look:</div>
+               <p>These are the top 10 election issues <span>Americans</span> care about.</p>
+               <span class="people" ng-repeat="peopleIssue in peopleIssues.issues">{{peopleIssue.issue}}  ·  </span>
+               <br/><br/><br/>
+               <p>These are the top 10 election issues <span>the news</span> is talking about.</p>
+               <span class="news" ng-repeat="newsIssue in newsIssues|limitTo:10">{{newsIssue.name}}  ·  </span>
+
               <!--<ul class="nav nav-about">
                    <li><h2>about</h2></li>
                    <li><p>
                        Select the tags
                    </p></li>
                </ul>-->
-               <div id="pie" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-
                <!--<ul class="nav nav-sidebar" ng-repeat="category in categories.categories">
                    <<li class="active"><a ng-href="">{{category.name}}</a></li>
                </ul>-->
             </div>
-            <div class="col-sm-7 offset-sm-5 main">
-                <h3>{{currentCategory}}</h3>
-                <div id="articles">
+            <div class="col-sm-7 graphs">
+                <!--<div id="articles">
                     <ul ng-repeat="article in currentArticles.articles" style="list-style: none;">
                         <li class="active"><a ng-href={{article.url}}><h4>{{article.name}}</h4></a></li>
                     </ul>
-                </div>
+                </div>-->
             </div>
         </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
