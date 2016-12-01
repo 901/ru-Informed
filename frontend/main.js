@@ -30,7 +30,8 @@ $(document).ready(function() {
                   height: 520
               },
               title: {
-                  text: 'Frequency of Media Articles By Election Category'
+                  text: 'Frequency of Media Articles By Election Category',
+                  align: 'left'
               },
               tooltip: {
                   pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

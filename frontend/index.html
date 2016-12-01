@@ -30,9 +30,21 @@
   </head>
   <body ng-app="myApp">
      <div class="container-fluid">
-        <div class="row header">
-            <span class="title">RU Informed?</span>
-        </div>
+         <nav class="nav header navbar-fixed-top">
+             <div class="col-sm-3">
+             <h1 class="title">RU Informed?</h1>
+             <span class="subtitle">Getting you the right news</span>
+             </div>
+             <div>
+                 <br>
+                 <nav class="nav nav-inline">
+                   <a class="nav-link" href="issues.html">Home</a>
+                   <!--<a class="nav-link" href="#">News Coverage</a>-->
+                   <a class="nav-link active" href="#">Article Find</a>
+                 </nav>
+             </div>
+         </nav>
+
         <div class="row view" ng-controller="TopicController">
            <div class="offset-sm-1 col-sm-4 sidebar">
               <!--<ul class="nav nav-about">
@@ -48,12 +60,28 @@
                </ul>-->
             </div>
             <div class="col-sm-7 offset-sm-5 main">
-                <h3>{{currentCategory}}</h3>
+                <h3>{{currentCategory}}: {{currentArticles.count}} stories</h3>
                 <div id="articles">
+                    <table>
+                        <tr ng-repeat="article in currentArticles.articles">
+                            <td id="date">
+                                {{article.date}}
+                            </td>
+                            <td id="source">
+                                {{article.source}}
+                            </td>
+                            <td>
+                                <a ng-href="{{article.url}}">{{article.name}}</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!--<div id="articles">
                     <ul ng-repeat="article in currentArticles.articles" style="list-style: none;">
                         <li class="active"><a ng-href={{article.url}}><h4>{{article.name}}</h4></a></li>
                     </ul>
-                </div>
+                </div>-->
             </div>
         </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

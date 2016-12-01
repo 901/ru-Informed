@@ -1,23 +1,53 @@
 .header {
-    color: black;
-    text-align: left;
     padding-left:50px;
-
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-
-    margin:20px;
-    border-bottom: 2px solid red;
+    padding-bottom: 10px;
+    border-bottom: 1px solid red;
 }
 
 .title {
-    font-size: 300%;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 250%;
+    margin:0;
+}
+
+.subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-size: 120%;
+    letter-spacing: 1.2px;
+}
+
+
+.nav-inline > a{
+    padding-left: 20px;
+    font-size: 130%;
 }
 
 
 /* -------NAV --------
 ----------------------
 ---------------------- */
+
+.view {
+    margin-top: 100px;
+}
+
+table {
+}
+
+table, td {
+    padding: 10px;
+}
+
+#date, #source {
+    font-size: 12px;
+}
+
+table, a {
+    font-size: 15px;
+}
+
 .nav-about {
     text-align: right;
 }
@@ -60,11 +90,12 @@ ul {
 
 .main > h3 {
     font-family: 'Playfair Display', serif;
+    border-bottom: 1px solid black;
 }
 
 #articles {
     font-family: 'Raleway', sans-serif;
-    height: 380px;
+    height: 400px;
     overflow-y: auto;
 }
 
@@ -77,23 +108,47 @@ ul {
 
 
 /******ISSUES*****/
-.issues {
-    font-family: 'Raleway', sans-serif;
-    margin-left: 50px;
-    margin-top: 40px;
+
+.navbar-fixed-top {
+    padding: 15px;
+    background-color: white;
 }
 
 .about {
-    font-size: 150%;
-    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 150px;
     padding: 15px;
-    border: 2px solid red;
+
+
+    border: 1px solid none;
     border-radius: 20px;
+    background-color: #e5e7ea;
+
+    text-align: center;
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 400%;
+
+}
+
+.people-row, .news-row {
+    margin: 50px;
+    padding-bottom: 50px;
+}
+
+.people-row {
+    border-bottom: 1px solid #e5e7ea;
+
+}
+
+.top-10 {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 10%;
 }
 
 .top-10 > p {
-    font-size: 150%;
-    border-bottom: 2px solid gray;
+    font-size: 120%;
+    border-bottom: 1px solid gray;
 
 }
 
