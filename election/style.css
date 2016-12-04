@@ -1,0 +1,19 @@
+.state-view > h1 {
+    text-align: center;
+}
+
+.state-topics > table  {
+    width: 100%;
+}
+
+.clinton, .state-topics {
+    min-height: 100px;
+}
+
+.trump, .state-topics {
+    min-height: 100px;
+}
+
+.caption {
+    font-size: 150%;
+}

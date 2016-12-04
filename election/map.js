@@ -33,11 +33,14 @@ $(document).ready(function() {
         };
 
         $scope.getStateInfo = function(state){
+            if (state == 'District of Columbia')
+                state = 'D.C.';
             $scope.selectedState = state;
 
             // get top 10 topics from clinton and trump by state
-            $scope.topics(state);
-            $scope.positiveArticles(state);
+            $scope.topics(state.toLowerCase());
+            // get positive articles
+            $scope.positiveArticles(state.toLowerCase());
 
 
         };
@@ -48,6 +51,8 @@ $(document).ready(function() {
             console.log(topicsClintonUrl);
 
             $http.get(topicsClintonUrl).success(function(response){
+                if (response.topics.length == 0)
+                    $scope.stateTopicsClinton = {};
                 $scope.stateTopicsClinton = response.topics;
             });
 
@@ -55,6 +60,8 @@ $(document).ready(function() {
                 ['state', 'start_date', 'end_date', 'candidate'], [state, $scope.daterange.d1, $scope.daterange.d2, 'trump']);
 
             $http.get(topicsTrumpUrl).success(function(response){
+                if (response.topics.length == 0)
+                    $scope.stateTopicsTrump = {};
                 $scope.stateTopicsTrump = response.topics;
             });
         }
@@ -63,14 +70,31 @@ $(document).ready(function() {
                 ['state', 'start_date', 'end_date', 'candidate'], [state, $scope.daterange.d1, $scope.daterange.d2, 'clinton']);
 
             $http.get(posArtClinton).success(function(response){
+                if (response.favorable_articles.length == 0)
+                    $scope.positiveArticlesClinton = {};
+
+                var articles = response.favorable_articles;
+                for (var i =0; i < articles.length; i++){
+                    articles[i].date = new Date(articles[i].date);
+                }
                 $scope.positiveArticlesClinton = response.favorable_articles;
+
             });
 
             var posArtTrump = getFormattedUrl('articles/favorable',
                 ['state', 'start_date', 'end_date', 'candidate'], [state, $scope.daterange.d1, $scope.daterange.d2, 'trump']);
 
             $http.get(posArtTrump).success(function(response){
+                if (response.favorable_articles.length == 0)
+                    $scope.positiveArticlesTrump  = {};
+
+                var articles = response.favorable_articles;
+                for (var i =0; i < articles.length; i++){
+                    articles[i].date = new Date(articles[i].date);
+                }
                 $scope.positiveArticlesTrump = response.favorable_articles;
+
+
             });
         };
         /*$scope.states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington', 'Washington, D.C.', 'West Virginia','Wisconsin','Wyoming'];
