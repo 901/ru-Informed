@@ -13,6 +13,7 @@ $(document).ready(function() {
         $scope.stateTopicsTrump = [];
         $scope.positiveArticlesClintonNation = [];
         $scope.positiveArticlesTrumpNation = [];
+        $scope.countryView = true;
 
         $scope.validateDate = function(){
             if ($scope.daterange.start_date > $scope.daterange.end_date){
@@ -50,12 +51,16 @@ $(document).ready(function() {
         };
 
         $scope.getCountryInfo = function(){
+            $scope.countryView = true;
             $scope.articlesNoState();
             $scope.statesTopicApprove();
-
+            $scope.statesPosArticles();
+            $scope.distribTopics();
         };
 
         $scope.getStateInfo = function(state){
+            $scope.countryView = false;
+
             if (state == 'District of Columbia')
                 state = 'D.C.';
             $scope.selectedState = state;
@@ -175,7 +180,32 @@ $(document).ready(function() {
 
         }
 
+        $scope.statesPosArticles = function(){
+            var urlClinton = getFormattedUrl('states',
+                ['start_date', 'end_date', 'candidate'], [$scope.daterange.d1, $scope.daterange.d2, 'clinton']);
 
+            var urlTrump = getFormattedUrl('states',
+                ['start_date', 'end_date', 'candidate'], [$scope.daterange.d1, $scope.daterange.d2, 'trump']);
+
+            $http.get(urlClinton).success(function(response){
+                $scope.statesPositiveClinton = response.states;
+            });
+
+            $http.get(urlTrump).success(function(response){
+                $scope.statesPositiveTrump = response.states;
+            });
+
+        }
+
+        $scope.distribTopics = function(){
+            var url = getFormattedUrl('topics',
+                ['start_date', 'end_date'], [$scope.daterange.d1, $scope.daterange.d2]);
+
+            $http.get(url).success(function(response){
+                $scope.distributedTopics = response.topics;
+                console.log($scope.distributedTopics);
+            });
+        }
 
     });
     /*var chart;

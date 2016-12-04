@@ -16,13 +16,13 @@
     min-height: 100px;
 }
 
-.state-view, .caption {
-
-}
-
 
 /* Nation view  */
 
 .nation-view > h1 {
     text-align: center;
+}
+
+.distrib-topics {
+    width: 100%;
 }
