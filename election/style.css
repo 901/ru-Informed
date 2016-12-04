@@ -1,19 +1,28 @@
+/* Index */
+
 .state-view > h1 {
     text-align: center;
 }
 
-.state-topics > table  {
+.state-view, .state-topics > table  {
     width: 100%;
 }
 
-.clinton, .state-topics {
+.state-view, .clinton, .state-topics {
     min-height: 100px;
 }
 
-.trump, .state-topics {
+.state-view, .trump, .state-topics {
     min-height: 100px;
 }
 
-.caption {
-    font-size: 150%;
+.state-view, .caption {
+
+}
+
+
+/* Nation view  */
+
+.nation-view > h1 {
+    text-align: center;
 }

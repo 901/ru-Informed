@@ -11,7 +11,8 @@ $(document).ready(function() {
         };
         $scope.stateTopicsClinton = [];
         $scope.stateTopicsTrump = [];
-
+        $scope.positiveArticlesClintonNation = [];
+        $scope.positiveArticlesTrumpNation = [];
 
         $scope.validateDate = function(){
             if ($scope.daterange.start_date > $scope.daterange.end_date){
@@ -27,8 +28,30 @@ $(document).ready(function() {
             var datedPollsUrl = getFormattedUrl("polls", ["start_date", "end_date"], [$scope.daterange.d1, $scope.daterange.d2]);
 
             $http.get(datedPollsUrl).success(function(response){
+
+                // extract US poll results and delete from state view on left
+                for (var i =  0; i < response.state_results.length; i++){
+                    if (response.state_results[i].state == 'U.S.'){
+                        $scope.countryPolls = {
+                            clinton: response.state_results[i].clinton,
+                            trump: response.state_results[i].trump
+                        };
+                        delete response.state_results[i];
+                        break;
+                    }
+
+                }
                 $scope.datedPolls = response.state_results;
             });
+
+            // get country info
+            $scope.getCountryInfo();
+
+        };
+
+        $scope.getCountryInfo = function(){
+            $scope.articlesNoState();
+            $scope.statesTopicApprove();
 
         };
 
@@ -76,6 +99,7 @@ $(document).ready(function() {
                 var articles = response.favorable_articles;
                 for (var i =0; i < articles.length; i++){
                     articles[i].date = new Date(articles[i].date);
+                    articles[i].date.setDate(articles[i].date.getDate() + 1);
                 }
                 $scope.positiveArticlesClinton = response.favorable_articles;
 
@@ -91,47 +115,69 @@ $(document).ready(function() {
                 var articles = response.favorable_articles;
                 for (var i =0; i < articles.length; i++){
                     articles[i].date = new Date(articles[i].date);
-                }
+                    articles[i].date.setDate(articles[i].date.getDate() + 1);                }
                 $scope.positiveArticlesTrump = response.favorable_articles;
 
 
             });
         };
-        /*$scope.states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington', 'Washington, D.C.', 'West Virginia','Wisconsin','Wyoming'];
-        $scope.stateSelect = [];
-        console.log($scope.states);
 
-        $scope.getStateData = function(){
-            //
-            console.log($scope.stateSelect);
-        }*/
+
+        $scope.articlesNoState = function(){
+            var posArtClinton = getFormattedUrl('articles/favorable',
+                ['start_date', 'end_date', 'candidate'], [$scope.daterange.d1, $scope.daterange.d2, 'clinton']);
+
+            $http.get(posArtClinton).success(function(response){
+                if (response.favorable_articles.length == 0)
+                    $scope.positiveArticlesClintonNation = {};
+
+                var articles = response.favorable_articles;
+                for (var i =0; i < articles.length; i++){
+                    articles[i].date = new Date(articles[i].date);
+                    articles[i].date.setDate(articles[i].date.getDate() + 1);
+                }
+                $scope.positiveArticlesClintonNation = response.favorable_articles;
+
+            });
+
+            var posArtTrump = getFormattedUrl('articles/favorable',
+                ['start_date', 'end_date', 'candidate'], [$scope.daterange.d1, $scope.daterange.d2, 'trump']);
+
+            $http.get(posArtTrump).success(function(response){
+                if (response.favorable_articles.length == 0)
+                    $scope.positiveArticlesTrumpNation  = {};
+
+                var articles = response.favorable_articles;
+                for (var i =0; i < articles.length; i++){
+                    articles[i].date = new Date(articles[i].date);
+                    articles[i].date.setDate(articles[i].date.getDate() + 1);
+                }
+                $scope.positiveArticlesTrumpNation = response.favorable_articles;
+            });
+        };
+
+        ///api/v1/states/topics_approved
+
+        $scope.statesTopicApprove = function(){
+            var urlClinton = getFormattedUrl('states/topics_approved',
+                ['start_date', 'end_date', 'candidate'], [$scope.daterange.d1, $scope.daterange.d2, 'clinton']);
+
+            var urlTrump = getFormattedUrl('states/topics_approved',
+                ['start_date', 'end_date', 'candidate'], [$scope.daterange.d1, $scope.daterange.d2, 'trump']);
+
+            $http.get(urlClinton).success(function(response){
+                $scope.statesTopicApproveClinton = response.states;
+            });
+
+            $http.get(urlTrump).success(function(response){
+                $scope.statesTopicApproveTrump = response.states;
+            });
+
+        }
 
 
 
     });
-
-    function getFormattedDate(date) {
-      var year = date.getFullYear();
-      var month = (1 + date.getMonth()).toString();
-      month = month.length > 1 ? month : '0' + month;
-      var day = date.getDate().toString();
-      day = day.length > 1 ? day : '0' + day;
-      return year + '/' + month + '/' + day;
-    }
-
-    function getFormattedUrl(endpoint, keys, values){
-        var url = "https://limitless-taiga-13414.herokuapp.com/api/v1/" + endpoint + "?";
-        var param = "";
-
-        for (var i = 0; i < keys.length; ++i){
-            param += keys[i] + "=" + values[i];
-            if (i + 1 != keys.length)
-                param += "&";
-        }
-
-        return url + param;
-    }
-
     /*var chart;
     var mainAngular = angular.module('myApp', []);
 
