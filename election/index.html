@@ -31,7 +31,25 @@
     <link rel="stylesheet" text="text/css" href="style.css">
   </head>
   <body ng-app="myApp">
-     <div class="container-fluid" ng-controller="DateController">
+
+    <div class="container-fluid">
+       <nav class="nav header navbar-fixed-top">
+           <div class="col-sm-3">
+           <h1 class="title">RU Informed?</h1>
+           <span class="subtitle">The election through the eyes of the News</span>
+           </div>
+           <div>
+               <br>
+               <nav class="nav nav-inline">
+                 <a class="nav-link" href="map.html">Home | </a>
+                 <!--<a class="nav-link" href="#">News Coverage</a>-->
+                 <a class="nav-link active" href="index.html">State-by-State | </a>
+                 <a class="nav-link-active" href="#">Article Find </a>
+               </nav>
+           </div>
+       </nav>
+
+     <div class="container-fluid" ng-controller="DateController" style="margin-top:100px;">
          <!-- Old nav, might add later-->
          <!--<nav class="nav header navbar-fixed-top">
              <div class="col-sm-3">

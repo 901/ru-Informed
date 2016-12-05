@@ -27,10 +27,28 @@
     <link rel="stylesheet" text="text/css" href="style.css">
   </head>
   <body>
+
+  <div class="container-fluid">
+     <nav class="nav header navbar-fixed-top">
+         <div class="col-sm-3">
+         <h1 class="title">RU Informed?</h1>
+         <span class="subtitle">The election through the eyes of the News</span>
+         </div>
+         <div>
+             <br>
+             <nav class="nav nav-inline">
+               <a class="nav-link" href="map.html">Home | </a>
+               <!--<a class="nav-link" href="#">News Coverage</a>-->
+               <a class="nav-link active" href="index.html">State-by-State | </a>
+               <a class="nav-link-active" href="#">Article Find </a>
+             </nav>
+         </div>
+     </nav>
+
     <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="http://datamaps.github.io/scripts/0.4.4/datamaps.all.js"></script>
-    <div id="map_election" style="position: fixed; width: 1200px; height: 750px; margin-left: 150px; margin-top: -50px"></div>
+    <div id="map_election" style="position: fixed; width: 1200px; height: 750px; margin-left: 150px; margin-top: -10px"></div>
     <script>
       var election = new Datamap({
       scope: 'usa',
@@ -259,7 +277,7 @@
     </script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <div id="election_result" style="min-width: 210px; height: 300px; max-width: 300px; margin: 100 auto"> </div>
+    <div id="election_result" style="min-width: 210px; height: 300px; max-width: 300px; margin-top: 100px;"> </div>
     <script>
           $(function () {
           Highcharts.setOptions({
@@ -271,13 +289,13 @@
                   plotShadow: false
               },
               title: {
-                  text: 'Presidential<br>Election<br>2015',
+                  text: 'Presidential<br>Election<br>2016',
                   align: 'center',
                   verticalAlign: 'middle',
                   y: 40
               },
               tooltip: {
-                  pointFormat: 'Electoral Votes: <b>{point.percentage:.1f}%</b>'
+                  pointFormat: 'Electoral Votes: <b>{point.y}-{point.percentage:.1f}%</b>'
               },
               plotOptions: {
                   pie: {
