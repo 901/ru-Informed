@@ -3,7 +3,7 @@ $(document).ready(function() {
     const red = '#FF585B';
 
     Highcharts.setOptions({
-        colors: [red, blue]
+        colors: [blue, red]
     });
 
     const clintonMap1 = new Datamap({
@@ -166,8 +166,8 @@ $(document).ready(function() {
                             name: '2016 Presidential Election',
                             innerSize: '50%',
                             data: [
-                                ['Trump', electoralVotes.trump],
-                                ['Clinton', electoralVotes.clinton]
+                                ['Clinton', electoralVotes.clinton],
+                                ['Trump', electoralVotes.trump]
                             ]
                         }
                     ]
