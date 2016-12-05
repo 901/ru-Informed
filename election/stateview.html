@@ -127,7 +127,10 @@
         <h1 style="width: 100%; text-align: center">Clinton <span ng-bind="(countryPolls.clinton|number:1) + '%' " style="color: #31A2FE"></span <span style="color: #777777"> vs. </span>Trump <span ng-bind="(countryPolls.trump|number: 1) + '%'" style="color: #FF585B"></span></h2>
         <div style="position: relative; top: 0; width: 100%; height: 500px; background: transparent">
             <div style="display: inline-block; width: 29%; height: 100%;" id="election-donut"></div>
-            <div style="display: inline-block; width: 70%; height: 100%;" id="election-map"></div>
+            <div style="display: inline-block; width: 70%; height: 100%;">
+                <div style="display: inline-block; width: 100%; height: 100%;" id="election-map"></div>
+                <p id="dc-label" ng-style="mapData.DC.clinton > mapData.DC.trump ? { color: '#31A2FE', position: 'absolute', right: '40px', top: '50%', transform: 'translateY(-50%)', border: '1px solid #31A2FE' } : { color: '#FF585B', position: 'absolute', right: '40px', top: '50%', transform: 'translateY(-50%)', border: '1px solid #FF585B' }" ng-click="showDC()">Washington, D.C.</p>
+            </div>
         </div>
 
         <div class="distrib-topics" style="margin-top: 20px;" ng-show="distributedTopics">
@@ -156,9 +159,11 @@
                         <img class="candidate-pic" style="border: 3px solid #31A2FE" src="clinton.jpeg" />
                         <h4 style="text-transform: uppercase; letter-spacing: 2px; text-align: center;">States in which Clinton is winning and there are more positive articles than negative articles</h4>
                         <div id="clinton-map-1" style="width: 100%; height: 300px;"></div>
+                        <p style="position: absolute; right: 0; top: 300px; color: #31A2FE" ng-show="statesPositiveClinton.indexOf('washington d.c.') !== -1">Washington, D.C.</p>
 
                         <h4 style="text-transform: uppercase; letter-spacing: 2px; text-align: center;">States in which Clinton is winning and there are more positive articles than negative articles about topics that Clinton supports</h4>
                         <div id="clinton-map-2" style="width: 100%; height: 300px;"></div>
+                        <p style="position: absolute; right: 0; top: 680px; color: #31A2FE" ng-show="statesTopicApproveClinton.indexOf('washington d.c.') !== -1">Washington, D.C.</p>
 
                         <div ng-hide="positiveArticlesClintonNation.length == 0">
                             <h4 ng-model="positiveArticlesClintonNation">Positive Articles in the News <span style="font-weight: bold; font-style: italic;">ONLY</span> about Clinton and <span style="font-weight: bold;">NOT</span> Trump <span style="font-weight: bold; font-style=italic;">({{positiveArticlesClintonNation.length}})</span></h4>
@@ -176,9 +181,11 @@
                         <img class="candidate-pic" style="border: 3px solid #FF585B" src="trump.jpeg" />
                         <h4 style="text-transform: uppercase; letter-spacing: 2px; text-align: center;">States in which Trump is winning and there are more positive articles than negative articles</h4>
                         <div id="trump-map-1" style="width: 100%; height: 300px;"></div>
+                        <p style="position: absolute; right: 0; top: 300px; color: #31A2FE" ng-show="statesPositiveTrump.indexOf('washington d.c.') !== -1">Washington, D.C.</p>
 
                         <h4 style="text-transform: uppercase; letter-spacing: 2px; text-align: center;">States in which Trump is winning and there are more positive articles than negative articles about topics that Trump supports</h4>
                         <div id="trump-map-2" style="width: 100%; height: 300px;"></div>
+                        <p style="position: absolute; right: 0; top: 680px; color: #31A2FE" ng-show="statesTopicApproveTrump.indexOf('washington d.c.') !== -1">Washington, D.C.</p>
 
                         <div ng-hide="positiveArticlesTrumpNation.length == 0">
                             <h4 ng-model="positiveArticlesTrumpNation">Positive Articles in the News <span style="font-weight: bold; font-style: italic;">ONLY</span> About Trump and <span style="font-weight: bold; font-style: italic;">NOT</span> Clinton <span style="font-weight: bold">({{positiveArticlesTrumpNation.length}})</span></h4>
