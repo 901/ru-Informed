@@ -161,7 +161,7 @@
                         <div id="clinton-map-2" style="width: 100%; height: 300px;"></div>
 
                         <div ng-hide="positiveArticlesClintonNation.length == 0">
-                            <h4 ng-model="positiveArticlesClintonNation">Positive Articles in the News about Clinton <span style="font-weight: bold">({{positiveArticlesClintonNation.length}})</span></h4>
+                            <h4 ng-model="positiveArticlesClintonNation">Positive Articles in the News <span style="font-weight: bold; font-style: italic;">ONLY</span> about Clinton and <span style="font-weight: bold;">NOT</span> Trump <span style="font-weight: bold; font-style=italic;">({{positiveArticlesClintonNation.length}})</span></h4>
                             <table class="state-articles">
                                 <tr class="topic_row" style="padding: 50px 0;" ng-repeat="article in positiveArticlesClintonNation | limitTo: 10">
                                     <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
@@ -181,7 +181,7 @@
                         <div id="trump-map-2" style="width: 100%; height: 300px;"></div>
 
                         <div ng-hide="positiveArticlesTrumpNation.length == 0">
-                            <h4 ng-model="positiveArticlesTrumpNation">Positive Articles in the News About Trump <span style="font-weight: bold">({{positiveArticlesTrumpNation.length}})</span></h4>
+                            <h4 ng-model="positiveArticlesTrumpNation">Positive Articles in the News <span style="font-weight: bold; font-style: italic;">ONLY</span> About Trump and <span style="font-weight: bold; font-style: italic;">NOT</span> Clinton <span style="font-weight: bold">({{positiveArticlesTrumpNation.length}})</span></h4>
                             <table class="state-articles">
                                 <tr class="topic_row" ng-repeat="article in positiveArticlesTrumpNation | limitTo: 10">
                                     <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
