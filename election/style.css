@@ -32,8 +32,17 @@ nav {
     border-bottom: 1px solid red;
 }
 
-.view {
+.form-div-parent {
     margin-top: 80px;
+    width: 100%;
+    min-height: 50px;
+}
+
+.form-div-child {
+    margin: 0 auto;
+    height: auto;
+    width: 30%;
+    position: relative;
 }
 
 .state-list td {

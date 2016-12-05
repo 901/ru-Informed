@@ -113,19 +113,18 @@
                 </div>
             </div>
         </div>
-        <div class="row view">
-            <div style="width: 100%">
+        <div class="row form-div-parent">
+            <div class="form-div-child">
                 <form novalidate class="simple-form">
-                    <label for"date1">Date Range
-                        <input type="date" name="date1" ng-model=daterange.start_date>
-                        <input type="date" name="date2" ng-model=daterange.end_date>
-                    </label>
+                    <h4>Select a date range to start and state to see more</h4>
+                    <input type="date" name="date1" ng-model=daterange.start_date>
+                    <input type="date" name="date2" ng-model=daterange.end_date>
                     <input type="button" ng-click="validateDate()" value="Go" /></br>
                 </form>
             </div>
         </div>
 
-        <h1 ng-model="countryPolls" style="width: 100%; text-align: center"><span style="color: #31A2FE">Clinton {{countryPolls.clinton|number:1}}%</span> <span style="color: #777777">vs.</span> <span style="color: #FF585B">{{countryPolls.trump|number:1}}% Trump</span></h2>
+        <h1 style="width: 100%; text-align: center">Clinton <span ng-bind="(countryPolls.clinton|number:1) + '%' " style="color: #31A2FE"></span <span style="color: #777777"> vs. </span>Trump <span ng-bind="(countryPolls.trump|number: 1) + '%'" style="color: #FF585B"></span></h2>
         <div style="position: relative; top: 0; width: 100%; height: 500px; background: transparent">
             <div style="display: inline-block; width: 29%; height: 100%;" id="election-donut"></div>
             <div style="display: inline-block; width: 70%; height: 100%;" id="election-map"></div>

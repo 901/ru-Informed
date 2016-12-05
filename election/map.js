@@ -135,12 +135,11 @@ $(document).ready(function() {
 
                 Highcharts.chart('election-donut', {
                     chart: {
-                        plotBackgroundColor: '#F7F7F7',
-                        plotBorderWidth: 0,
+                        backgroundColor: '#F7F7F7',
                         plotShadow: false
                     },
                     title: {
-                        text: 'Presidential<br />Election<br />2016',
+                        text: 'Electoral<br />Votes<br />2016',
                         align: 'center',
                         verticalAlign: 'middle',
                         y: 80
@@ -149,7 +148,7 @@ $(document).ready(function() {
                         pie: {
                             dataLabels: {
                                 enabled: true,
-                                distance: -50,
+                                distance: -15,
                                 style: {
                                     fontWeight: 'bold',
                                     color: 'white'
