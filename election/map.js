@@ -77,6 +77,10 @@ $(document).ready(function() {
         $scope.positiveArticlesClintonNation = [];
         $scope.positiveArticlesTrumpNation = [];
         $scope.countryView = false;
+        $scope.statesPositiveClinton = [];
+        $scope.statesPositiveTrump = [];
+        $scope.statesTopicApproveClinton = [];
+        $scope.statesTopicApproveTrump = [];
 
         $scope.validateDate = function(){
             if ($scope.daterange.start_date > $scope.daterange.end_date){
@@ -130,6 +134,7 @@ $(document).ready(function() {
                     }
                 }
 
+                $scope.mapData = mapData;
                 electionMap.updateChoropleth(mapData, { reset: true });
 
                 Highcharts.chart('election-donut', {
@@ -380,6 +385,14 @@ $(document).ready(function() {
             });
         }
 
+        $scope.showDC = function() {
+            $scope.getStateInfo('washington d.c.');
+
+            $('body').addClass('modal--open');
+            $('#modal-view').css({
+                'display': 'block'
+            });
+        };
     });
     /*var chart;
     var mainAngular = angular.module('myApp', []);

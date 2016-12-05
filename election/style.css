@@ -153,3 +153,8 @@ img.candidate-pic {
     transform: translateX(-50%);
     margin: 10px 0;
 }
+
+#dc-label {
+    cursor: pointer;
+    padding: 5px;
+}
