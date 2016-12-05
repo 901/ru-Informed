@@ -73,7 +73,7 @@
                             </table>
                         </div>
                         <div ng-hide="positiveArticlesClinton.length == 0">
-                            <h4 ng-model="selectedState">Positive Articles in the News about Clinton in {{selectedState}}</h4>
+                            <h4 ng-model="selectedState">Positive Articles in the News about <span style="font-weight:bold;">ONLY</span> Clinton and <span style="font-weight:bold;">NOT</span> Trump in {{selectedState}}</h4>
                             <table class="state-articles">
                                 <tr ng-repeat="article in positiveArticlesClinton">
                                     <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
@@ -99,7 +99,7 @@
                             </table>
                         </div>
                         <div ng-hide="positiveArticlesTrump.length ==0">
-                            <h4 ng-model="selectedState">Positive Articles in the News About Trump in {{selectedState}}</h4>
+                            <h4 ng-model="selectedState">Positive Articles in the News About <span style="font-weight:bold;">ONLY</span> Trump and <span style="font-weight:bold;">NOT</span> Clinton in {{selectedState}}</h4>
                             <table class="state-articles">
                                 <tr ng-repeat="article in positiveArticlesTrump">
                                     <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
@@ -170,7 +170,7 @@
                         <p style="position: absolute; right: 0; top: 680px; color: #31A2FE" ng-show="statesTopicApproveClinton.indexOf('washington d.c.') !== -1">Washington, D.C.</p>
 
                         <div ng-hide="positiveArticlesClintonNation.length == 0">
-                            <h4 ng-model="positiveArticlesClintonNation">Positive Articles in the News about Clinton <span style="font-weight: bold">({{positiveArticlesClintonNation.length}})</span></h4>
+                            <h4 ng-model="positiveArticlesClintonNation">Positive Articles in the News about <span style="font-weight:bold;">ONLY</span> Clinton and <span style="font-weight:bold;">NOT</span> Trump <span style="font-weight: bold">({{positiveArticlesClintonNation.length}})</span></h4>
                             <table class="state-articles">
                                 <tr class="topic_row" style="padding: 50px 0;" ng-repeat="article in positiveArticlesClintonNation | limitTo: 10">
                                     <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
@@ -192,7 +192,7 @@
                         <p style="position: absolute; right: 0; top: 680px; color: #31A2FE" ng-show="statesTopicApproveTrump.indexOf('washington d.c.') !== -1">Washington, D.C.</p>
 
                         <div ng-hide="positiveArticlesTrumpNation.length == 0">
-                            <h4 ng-model="positiveArticlesTrumpNation">Positive Articles in the News About Trump <span style="font-weight: bold">({{positiveArticlesTrumpNation.length}})</span></h4>
+                            <h4 ng-model="positiveArticlesTrumpNation">Positive Articles in the News about <span style="font-weight:bold;">ONLY</span> Trump and <span style="font-weight:bold;">NOT</span> Clinton <span style="font-weight: bold">({{positiveArticlesTrumpNation.length}})</span></h4>
                             <table class="state-articles">
                                 <tr class="topic_row" ng-repeat="article in positiveArticlesTrumpNation | limitTo: 10">
                                     <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
