@@ -26,7 +26,7 @@
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="" crossorigin="anonymous"></script>
     <link rel="stylesheet" text="text/css" href="style.css">
   </head>
-  <body>
+  <body style="overflow-y: hidden;">
 
   <div class="container-fluid">
      <nav class="nav header navbar-fixed-top">
@@ -48,8 +48,13 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="http://datamaps.github.io/scripts/0.4.4/datamaps.all.js"></script>
-    <div id="map_election" style="position: fixed; width: 1200px; height: 750px; margin-left: 150px; margin-top: -10px"></div>
+    <div id="map_election" style="position: absolute; right: -50px; top: 0; width: 80%; height: 700px;"></div>
     <script>
+      const blue = '#31A2FE';
+      const lightBlue10 = '#4BBCFF';
+      const red = '#FF585B';
+      const lightRed20 = '#FF8B8E';
+
       var election = new Datamap({
       scope: 'usa',
       element: document.getElementById('map_election'),
@@ -62,12 +67,12 @@
       },
 
       fills: {
-        'Republican': '#CC4731',
-        'Democrat': '#306596',
-        'Heavy Democrat': '#667FAF',
-        'Light Democrat': '#A9C0DE',
-        'Heavy Republican': '#CA5E5B',
-        'Light Republican': '#EAA9A8',
+        'Republican': red,
+        'Democrat': blue,
+        'Heavy Democrat': '#006FCB',
+        'Light Democrat': lightBlue10,
+        'Heavy Republican': '#E63F42',
+        'Light Republican': lightRed20,
         defaultFill: '#EDDC4E'
       },
       data:{
@@ -200,7 +205,7 @@
         "electoralVotes": 32
       },
       "PA": {
-        "fillKey": "Democrat",
+        "fillKey": "Republican",
         "electoralVotes": 32
       },
       "RI": {
@@ -281,7 +286,7 @@
     <script>
           $(function () {
           Highcharts.setOptions({
-              colors: ['#DD1021', '#0202FF']});
+              colors: ['#31A2FE', '#FF585B']});
           Highcharts.chart('election_result', {
               chart: {
                   plotBackgroundColor: null,
@@ -317,8 +322,8 @@
                   name: '2016 Presidential Election',
                   innerSize: '50%',
                   data: [
-                      ['Trump',   302],
                       ['Clinton',       232],
+                      ['Trump',   302],
                   ]
               }]
           });
