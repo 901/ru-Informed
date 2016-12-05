@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>State Distribution of Media and Articles During the Election Season</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--<link rel="stylesheet" href="dashboard.css"></link>-->
+
+    <!--Font Families
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Raleway:400i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="" crossorigin="anonymous"></script>
+    <link rel="stylesheet" text="text/css" href="style.css">
+  </head>
+  <body>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="http://datamaps.github.io/scripts/0.4.4/datamaps.all.js"></script>
+    <div id="map_election" style="position: fixed; width: 1200px; height: 750px; margin-left: 50px; margin-top: -50px"></div>
+    <script>
+      var election = new Datamap({
+      scope: 'usa',
+      element: document.getElementById('map_election'),
+      geographyConfig: {
+      highlightBorderColor: '#bada55',
+      popupTemplate: function(geography, data) {
+        return '<div class="hoverinfo">' + geography.properties.name + ' Electoral Votes:' +  data.electoralVotes + ' '
+      },
+      highlightBorderWidth: 3
+      },
+
+      fills: {
+        'Republican': '#CC4731',
+        'Democrat': '#306596',
+        'Heavy Democrat': '#667FAF',
+        'Light Democrat': '#A9C0DE',
+        'Heavy Republican': '#CA5E5B',
+        'Light Republican': '#EAA9A8',
+        defaultFill: '#EDDC4E'
+      },
+      data:{
+      "AZ": {
+        "fillKey": "Republican",
+        "electoralVotes": 5
+      },
+      "CO": {
+        "fillKey": "Light Democrat",
+        "electoralVotes": 5
+      },
+      "DE": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "FL": {
+        "fillKey": "UNDECIDED",
+        "electoralVotes": 29
+      },
+      "GA": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "HI": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "ID": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "IL": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "IN": {
+        "fillKey": "Republican",
+        "electoralVotes": 11
+      },
+      "IA": {
+        "fillKey": "Light Democrat",
+        "electoralVotes": 11
+      },
+      "KS": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "KY": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "LA": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "MD": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "ME": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "MA": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "MN": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "MI": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "MS": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "MO": {
+        "fillKey": "Republican",
+        "electoralVotes": 13
+      },
+      "MT": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "NC": {
+        "fillKey": "Light Republican",
+        "electoralVotes": 32
+      },
+      "NE": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "NV": {
+        "fillKey": "Heavy Democrat",
+        "electoralVotes": 32
+      },
+      "NH": {
+        "fillKey": "Light Democrat",
+        "electoralVotes": 32
+      },
+      "NJ": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "NY": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "ND": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "NM": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "OH": {
+        "fillKey": "UNDECIDED",
+        "electoralVotes": 32
+      },
+      "OK": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "OR": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "PA": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "RI": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "SC": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "SD": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "TN": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "TX": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "UT": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "WI": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "VA": {
+        "fillKey": "Light Democrat",
+        "electoralVotes": 32
+      },
+      "VT": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "WA": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "WV": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "WY": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "CA": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "CT": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "AK": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "AR": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "AL": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      }
+      }
+      });
+      election.labels();
+    </script>
+  </body>
+</html>
