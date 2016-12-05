@@ -30,7 +30,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="http://datamaps.github.io/scripts/0.4.4/datamaps.all.js"></script>
-    <div id="map_election" style="position: fixed; width: 1200px; height: 750px; margin-left: 50px; margin-top: -50px"></div>
+    <div id="map_election" style="position: fixed; width: 1200px; height: 750px; margin-left: 150px; margin-top: -50px"></div>
     <script>
       var election = new Datamap({
       scope: 'usa',
@@ -256,6 +256,55 @@
       }
       });
       election.labels();
+    </script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <div id="election_result" style="min-width: 210px; height: 300px; max-width: 300px; margin: 100 auto"> </div>
+    <script>
+          $(function () {
+          Highcharts.setOptions({
+              colors: ['#DD1021', '#0202FF']});
+          Highcharts.chart('election_result', {
+              chart: {
+                  plotBackgroundColor: null,
+                  plotBorderWidth: 0,
+                  plotShadow: false
+              },
+              title: {
+                  text: 'Presidential<br>Election<br>2015',
+                  align: 'center',
+                  verticalAlign: 'middle',
+                  y: 40
+              },
+              tooltip: {
+                  pointFormat: 'Electoral Votes: <b>{point.percentage:.1f}%</b>'
+              },
+              plotOptions: {
+                  pie: {
+                      dataLabels: {
+                          enabled: true,
+                          distance: -50,
+                          style: {
+                              fontWeight: 'bold',
+                              color: 'white'
+                          }
+                      },
+                      startAngle: -90,
+                      endAngle: 90,
+                      center: ['50%', '75%']
+                  }
+              },
+              series: [{
+                  type: 'pie',
+                  name: '2016 Presidential Election',
+                  innerSize: '50%',
+                  data: [
+                      ['Trump',   302],
+                      ['Clinton',       232],
+                  ]
+              }]
+          });
+      });
     </script>
   </body>
 </html>
