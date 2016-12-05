@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,6 +30,9 @@
     <link rel="stylesheet" text="text/css" href="style.css">
   </head>
   <body ng-app="myApp">
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+      <script src="http://datamaps.github.io/scripts/0.4.4/datamaps.all.js"></script>
 
      <div class="container-fluid" ng-controller="DateController">
          <div class="row">
@@ -46,64 +50,32 @@
                      </nav>
                  </div>
              </nav>
-        </div>
-        <div class="row view">
-            <div class="col-sm-2">
-                <form novalidate class="simple-form">
-                    <label for"date1">Date Range
-                        <input type="date" name="date1" ng-model=daterange.start_date>
-                        <input type="date" name="date2" ng-model=daterange.end_date>
-                    </label>
-                    <input type="button" ng-click="validateDate()" value="Go" /></br>
-                </form>
-                <table class="state-list" ng-show="datedPolls.length > 0">
-                    <tr>
-                        <th>State</th>
-                        <th>Clinton</th>
-                        <th>Trump</th>
-                    </tr>
-                    <tr ng-repeat="state in datedPolls" ng-click="getStateInfo(state.state)">
-                        <td style="background-color:{{state.clinton>state.trump?'#31A2FE':'#FF585B'}}">{{state.state}}</td>
-                        <td style="background-color:{{state.clinton>state.trump?'#31A2FE':'#FF585B'}}">{{state.clinton | number:1}}</td>
-                        <td style="background-color:{{state.clinton>state.trump?'#31A2FE':'#FF585B'}}">{{state.trump | number: 1}}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-sm-10 nation-view" ng-show="countryView==true" ng-hide="stateView==true">
-                <h1 ng-model="countryPolls">Nation - Clinton: {{countryPolls.clinton|number:1}}% Trump: {{countryPolls.trump|number:1}}%</h2>
-                <div class="row">
-                    <div class="distrib-topics col-sm-12" ng-show="distributedTopics">
-                        <h4>Top 15 Frequent Topics in the Media</h4>
-                        <table>
-                            <tr>
-                                <th>Rank</th>
-                                <th>Topic</th>
-                                <th>Clinton Supports?</th>
-                                <th>Trump Supports?</th>
-                            </tr>
-                            <tr ng-repeat="topic in distributedTopics | limitTo: 15" ng-style="topic.clinton_approves==topic.trump_approves && {'background-color':'#7C87C3'} || topic.clinton_approves == 'y' &&  {'background-color':'#31A2FE'} || topic.trump_approves == 'y' &&  {'background-color':'#FF585B'}">
-                                <td>{{$index + 1}}</td>
-                                <td>{{topic.topic }}</td>
-                                <td>{{topic.clinton_approves}}</td>
-                                <td>{{topic.trump_approves}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 clinton">
-                        <div class="states-pos-article" ng-show="statesPositiveClinton">
-                            <h4>States in which Clinton is winning and there are more positive articles than negative articles</h4>
-                            <span ng-repeat="state in statesPositiveClinton">{{state}}, </span>
+         </div>
+
+         <div id="modal-view">
+            <div id="modal-background"></div>
+            <div id="modal-dialog">
+                <div class="col-sm-12 state-view" ng-show="stateView==true" ng-hide="countryView==true">
+                    <h1 ng-model="statePoll" style="text-transform: uppercase; letter-spacing: 2px;">{{statePoll.state}}</h1>
+                    <h3 style="text-align: center"><span style="color: #31A2FE">Clinton {{statePoll.clinton | number: 1}} %</span> / <span style="color: #FF585B">{{statePoll.trump | number: 1}}% Trump</span></h3>
+                    <div class="col-sm-6 clinton" ng-hide="stateTopicsClinton.length == 0">
+                        <div class="state-topics">
+                            <h4 ng-model="selectedState">Topics in the News that Clinton Supports in {{selectedState}}</h4>
+                            <table>
+                                <tr>
+                                    <th>Topic</th>
+                                    <th>Count</th>
+                                </tr>
+                                <tr ng-repeat="topic in stateTopicsClinton">
+                                    <td>{{topic.topic}}</td>
+                                    <td>{{topic.article_count}}</td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class="states-topic-approve" ng-show="statesTopicApproveClinton">
-                            <h4>States in which Clinton is winning and there are more positive articles than negative articles about topics that Clinton supports</h4>
-                            <span ng-repeat="state in statesTopicApproveClinton">{{state}}, </span>
-                        </div>
-                        <div ng-hide="positiveArticlesClintonNation.length == 0">
-                            <h4 ng-model="positiveArticlesClintonNation">Positive Articles in the News about Clinton ({{positiveArticlesClintonNation.length}})</h4>
+                        <div ng-hide="positiveArticlesClinton.length == 0">
+                            <h4 ng-model="selectedState">Positive Articles in the News about Clinton in {{selectedState}}</h4>
                             <table class="state-articles">
-                                <tr ng-repeat="article in positiveArticlesClintonNation | limitTo: 10">
+                                <tr ng-repeat="article in positiveArticlesClinton">
                                     <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
                                     <td>{{article.source}}</td>
                                     <td><a ng-href="{{article.url}}">{{article.title}}</a></td>
@@ -112,19 +84,24 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-sm-6 trump">
-                        <div class="states-pos-article" ng-show="statesPositiveTrump">
-                            <h4>States in which Trump is winning and there are more positive articles than negative articles</h4>
-                            <span ng-repeat="state in statesPositiveTrump">{{state}}, </span>
+                    <div class="col-sm-6 trump" ng-show="selectedState">
+                        <div class="state-topics" ng-hide="stateTopicsTrump.length == 0">
+                            <h4 ng-model="selectedState">Topics in the News that Trump Supports in {{selectedState}}</h4>
+                            <table>
+                                <tr>
+                                    <th>Topic</th>
+                                    <th>Count</th>
+                                </tr>
+                                <tr ng-repeat="topic in stateTopicsTrump">
+                                    <td>{{topic.topic}}</td>
+                                    <td>{{topic.article_count}}</td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class="states-topic-approve" ng-show="statesTopicApproveTrump">
-                            <h4>States in which Trump is winning and there are more positive articles than negative articles about topics that Trump supports</h4>
-                            <span ng-repeat="state in statesTopicApproveTrump">{{state}}, </span>
-                        </div>
-                        <div ng-hide="positiveArticlesTrumpNation.length == 0">
-                            <h4 ng-model="positiveArticlesTrumpNation">Positive Articles in the News About Trump ({{positiveArticlesTrumpNation.length}})</h4>
+                        <div ng-hide="positiveArticlesTrump.length ==0">
+                            <h4 ng-model="selectedState">Positive Articles in the News About Trump in {{selectedState}}</h4>
                             <table class="state-articles">
-                                <tr ng-repeat="article in positiveArticlesTrumpNation | limitTo: 10">
+                                <tr ng-repeat="article in positiveArticlesTrump">
                                     <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
                                     <td>{{article.source}}</td>
                                     <td> <a ng-href="{{article.url}}">{{article.title}}</a></td>
@@ -135,64 +112,90 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row view">
+            <div style="width: 100%">
+                <form novalidate class="simple-form">
+                    <label for"date1">Date Range
+                        <input type="date" name="date1" ng-model=daterange.start_date>
+                        <input type="date" name="date2" ng-model=daterange.end_date>
+                    </label>
+                    <input type="button" ng-click="validateDate()" value="Go" /></br>
+                </form>
+            </div>
+        </div>
 
-            <div class="col-sm-10 state-view" ng-show="stateView==true" ng-hide="countryView==true">
-                <h1 ng-model="statePoll">{{statePoll.state}}: Clinton {{statePoll.clinton | number: 1}} % Trump {{statePoll.trump | number: 1}} %</h2>
-                <div class="col-sm-6 clinton" ng-hide="stateTopicsClinton.length == 0">
-                    <div class="state-topics">
-                        <h4 ng-model="selectedState">Topics in the News that Clinton Supports in {{selectedState}}</h4>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Count</th>
-                            </tr>
-                            <tr ng-repeat="topic in stateTopicsClinton">
-                                <td>{{topic.topic}}</td>
-                                <td>{{topic.article_count}}</td>
-                            </tr>
-                        </table>
+        <h1 ng-model="countryPolls" style="width: 100%; text-align: center">Nation - Clinton: {{countryPolls.clinton|number:1}}% Trump: {{countryPolls.trump|number:1}}%</h2>
+        <div style="position: relative; top: 0; width: 100%; height: 500px; background: transparent">
+            <div style="display: inline-block; width: 29%; height: 100%;" id="election-donut"></div>
+            <div style="display: inline-block; width: 70%; height: 100%;" id="election-map"></div>
+        </div>
+
+        <div class="distrib-topics" style="margin-top: 20px;" ng-show="distributedTopics">
+            <h2 style="width: 100%; text-align: center; text-transform: uppercase; letter-spacing: 2px;">Top 15 Frequent Topics in the Media</h2>
+            <table>
+                <tr class="topic_row">
+                    <th class="topic_col">Rank</th>
+                    <th class="topic_col">Topic</th>
+                    <th class="topic_col">Clinton Supports?</th>
+                    <th class="topic_col">Trump Supports?</th>
+                </tr>
+                <tr class="topic_row" ng-repeat="topic in distributedTopics | limitTo: 15" ng-style="topic.clinton_approves==topic.trump_approves && {'background-color':'#7C87C3'} || topic.clinton_approves == 'y' &&  {'background-color':'#31A2FE'} || topic.trump_approves == 'y' &&  {'background-color':'#FF585B'}">
+                    <td class="topic_col">{{$index + 1}}</td>
+                    <td class="topic_col">{{topic.topic }}</td>
+                    <td class="topic_col">{{topic.clinton_approves}}</td>
+                    <td class="topic_col">{{topic.trump_approves}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="border-top: 1px solid #DEDEDE; margin-top: 20px;">
+            <h2 style="text-transform: uppercase; letter-spacing: 2px; width: 100%; text-align: center;"><span style="color: #31A2FE">Clinton</span> <span style="font-size: 12px;">vs.</span> <span style="color: #FF585B">Trump</span></h2>
+            <div class="col-sm-12 nation-view">
+                <div class="row">
+                    <div class="col-sm-6 clinton">
+                        <img class="candidate-pic" style="border: 3px solid #31A2FE" src="clinton.jpeg" />
+                        <h4 style="text-transform: uppercase; letter-spacing: 2px; text-align: center;">States in which Clinton is winning and there are more positive articles than negative articles</h4>
+                        <div id="clinton-map-1" style="width: 100%; height: 300px;"></div>
+
+                        <h4 style="text-transform: uppercase; letter-spacing: 2px; text-align: center;">States in which Clinton is winning and there are more positive articles than negative articles about topics that Clinton supports</h4>
+                        <div id="clinton-map-2" style="width: 100%; height: 300px;"></div>
+
+                        <div ng-hide="positiveArticlesClintonNation.length == 0">
+                            <h4 ng-model="positiveArticlesClintonNation">Positive Articles in the News about Clinton <span style="font-weight: bold">({{positiveArticlesClintonNation.length}})</span></h4>
+                            <table class="state-articles">
+                                <tr class="topic_row" style="padding: 50px 0;" ng-repeat="article in positiveArticlesClintonNation | limitTo: 10">
+                                    <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
+                                    <td class="topic_col">{{article.source}}</td>
+                                    <td class="topic_col"><a ng-href="{{article.url}}">{{article.title}}</a></td>
+                                    <td class="topic_col">{{article.topic}}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div ng-hide="positiveArticlesClinton.length == 0">
-                        <h4 ng-model="selectedState">Positive Articles in the News about Clinton in {{selectedState}}</h4>
-                        <table class="state-articles">
-                            <tr ng-repeat="article in positiveArticlesClinton">
-                                <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
-                                <td>{{article.source}}</td>
-                                <td><a ng-href="{{article.url}}">{{article.title}}</a></td>
-                                <td>{{article.topic}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-sm-6 trump" ng-show="selectedState">
-                    <div class="state-topics" ng-hide="stateTopicsTrump.length == 0">
-                        <h4 ng-model="selectedState">Topics in the News that Trump Supports in {{selectedState}}</h4>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Count</th>
-                            </tr>
-                            <tr ng-repeat="topic in stateTopicsTrump">
-                                <td>{{topic.topic}}</td>
-                                <td>{{topic.article_count}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div ng-hide="positiveArticlesTrump.length ==0">
-                        <h4 ng-model="selectedState">Positive Articles in the News About Trump in {{selectedState}}</h4>
-                        <table class="state-articles">
-                            <tr ng-repeat="article in positiveArticlesTrump">
-                                <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
-                                <td>{{article.source}}</td>
-                                <td> <a ng-href="{{article.url}}">{{article.title}}</a></td>
-                                <td>{{article.topic}}</td>
-                            </tr>
-                        </table>
+                    <div class="col-sm-6 trump">
+                        <img class="candidate-pic" style="border: 3px solid #FF585B" src="trump.jpeg" />
+                        <h4 style="text-transform: uppercase; letter-spacing: 2px; text-align: center;">States in which Trump is winning and there are more positive articles than negative articles</h4>
+                        <div id="trump-map-1" style="width: 100%; height: 300px;"></div>
+
+                        <h4 style="text-transform: uppercase; letter-spacing: 2px; text-align: center;">States in which Trump is winning and there are more positive articles than negative articles about topics that Trump supports</h4>
+                        <div id="trump-map-2" style="width: 100%; height: 300px;"></div>
+
+                        <div ng-hide="positiveArticlesTrumpNation.length == 0">
+                            <h4 ng-model="positiveArticlesTrumpNation">Positive Articles in the News About Trump <span style="font-weight: bold">({{positiveArticlesTrumpNation.length}})</span></h4>
+                            <table class="state-articles">
+                                <tr class="topic_row" ng-repeat="article in positiveArticlesTrumpNation | limitTo: 10">
+                                    <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
+                                    <td class="topic_col">{{article.source}}</td>
+                                    <td class="topic_col"> <a ng-href="{{article.url}}">{{article.title}}</a></td>
+                                    <td class="topic_col">{{article.topic}}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
@@ -200,7 +203,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="modal_view.js"></script>
 
   </body>
 </html>

@@ -1,7 +1,70 @@
 $(document).ready(function() {
+    const blue = '#31A2FE';
+    const red = '#FF585B';
+
+    Highcharts.setOptions({
+        colors: [red, blue]
+    });
+
+    const clintonMap1 = new Datamap({
+        scope: 'usa',
+        element: document.getElementById('clinton-map-1'),
+        fills: {
+            'Democrat': blue,
+            defaultFill: 'transparent'
+        }
+    });
+
+    const clintonMap2 = new Datamap({
+        scope: 'usa',
+        element: document.getElementById('clinton-map-2'),
+        fills: {
+            'Democrat': blue,
+            defaultFill: 'transparent'
+        }
+    });
+
+    const trumpMap1 = new Datamap({
+        scope: 'usa',
+        element: document.getElementById('trump-map-1'),
+        fills: {
+            'Republican': red,
+            defaultFill: 'transparent'
+        }
+    });
+
+    const trumpMap2 = new Datamap({
+        scope: 'usa',
+        element: document.getElementById('trump-map-2'),
+        fills: {
+            'Republican': red,
+            defaultFill: 'transparent'
+        }
+    });
 
     var mainAngular = angular.module('myApp', []);
     mainAngular.controller('DateController', function($scope, $http){
+        $scope.stateSelected = '';
+        const electionMap = new Datamap({
+            scope: 'usa',
+            element: document.getElementById('election-map'),
+            done: function(map) {
+                map.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+                    $scope.getStateInfo(geography.properties.name);
+
+                    $('body').addClass('modal--open');
+                    $('#modal-view').css({
+                        'display': 'block'
+                    });
+                })
+            },
+            fills: {
+                'Republican': red,
+                'Democrat': blue,
+                defaultFill: '#7C87C3'
+            }
+        });
+
         $scope.datedPolls = [];
         $scope.daterange = {
             start_date: new Date('2016-01-02'),
@@ -44,6 +107,71 @@ $(document).ready(function() {
 
                 }
                 $scope.datedPolls = response.state_results;
+
+                let electoralVotes = {
+                    clinton: 0,
+                    trump: 0
+                };
+                let mapData = {};
+                for (var i = 0; i < response.state_results.length; ++i) {
+                    const data = response.state_results[i];
+                    if (data == null) continue;
+
+                    const stateAbbrev = statesHash[data.state.toLowerCase()];
+                    mapData[stateAbbrev] = {
+                        'fillKey': data.clinton > data.trump ? 'Democrat' : 'Republican',
+                        'clinton': data.clinton,
+                        'trump': data.trump
+                    };
+
+                    if (data.clinton > data.trump) {
+                        electoralVotes.clinton += statesElectoralVotes[data.state.toLowerCase()];
+                    } else {
+                        electoralVotes.trump += statesElectoralVotes[data.state.toLowerCase()];
+                    }
+                }
+
+                electionMap.updateChoropleth(mapData, { reset: true });
+
+                Highcharts.chart('election-donut', {
+                    chart: {
+                        plotBackgroundColor: '#F7F7F7',
+                        plotBorderWidth: 0,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Presidential<br />Election<br />2016',
+                        align: 'center',
+                        verticalAlign: 'middle',
+                        y: 80
+                    },
+                    plotOptions: {
+                        pie: {
+                            dataLabels: {
+                                enabled: true,
+                                distance: -50,
+                                style: {
+                                    fontWeight: 'bold',
+                                    color: 'white'
+                                }
+                            },
+                            startAngle: -90,
+                            endAngle: 90,
+                            center: ['50%', '75%']
+                        }
+                    },
+                    series: [
+                        {
+                            type: 'pie',
+                            name: '2016 Presidential Election',
+                            innerSize: '50%',
+                            data: [
+                                ['Trump', electoralVotes.trump],
+                                ['Clinton', electoralVotes.clinton]
+                            ]
+                        }
+                    ]
+                });
             });
 
             // get country info
@@ -184,10 +312,30 @@ $(document).ready(function() {
 
             $http.get(urlClinton).success(function(response){
                 $scope.statesTopicApproveClinton = response.states;
+
+                let mapData = {};
+                for (var i = 0; i < response.states.length; ++i) {
+                    const stateAbbrev = statesHash[response.states[i].toLowerCase()];
+                    mapData[stateAbbrev] = {
+                        'fillKey': 'Democrat'
+                    };
+                }
+
+                clintonMap2.updateChoropleth(mapData, { reset: true });
             });
 
             $http.get(urlTrump).success(function(response){
                 $scope.statesTopicApproveTrump = response.states;
+
+                let mapData = {};
+                for (var i = 0; i < response.states.length; ++i) {
+                    const stateAbbrev = statesHash[response.states[i].toLowerCase()];
+                    mapData[stateAbbrev] = {
+                        'fillKey': 'Republican'
+                    };
+                }
+
+                trumpMap2.updateChoropleth(mapData, { reset: true });
             });
 
         }
@@ -201,10 +349,30 @@ $(document).ready(function() {
 
             $http.get(urlClinton).success(function(response){
                 $scope.statesPositiveClinton = response.states;
+
+                let mapData = {};
+                for (var i = 0; i < response.states.length; ++i) {
+                    const stateAbbrev = statesHash[response.states[i].toLowerCase()];
+                    mapData[stateAbbrev] = {
+                        'fillKey': 'Democrat'
+                    };
+                }
+
+                clintonMap1.updateChoropleth(mapData, { reset: true });
             });
 
             $http.get(urlTrump).success(function(response){
                 $scope.statesPositiveTrump = response.states;
+
+                let mapData = {};
+                for (var i = 0; i < response.states.length; ++i) {
+                    const stateAbbrev = statesHash[response.states[i].toLowerCase()];
+                    mapData[stateAbbrev] = {
+                        'fillKey': 'Republican'
+                    };
+                }
+
+                trumpMap1.updateChoropleth(mapData, { reset: true });
             });
 
         }

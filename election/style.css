@@ -67,6 +67,80 @@ nav {
     width: 100%;
 }
 
+.distrib-topics {
+    border: 1px solid #DEDEDE;
+    text-indent: 20px;
+}
+
 .distrib-topics td {
     color: #f9f9f9;
+}
+
+
+/*******************
+ * Topic Table
+ */
+
+.topic_row {
+    height: 40px;
+}
+
+.topic_col {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+
+/******************
+ * MODAL VIEW
+ */
+
+#modal-view {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+}
+
+#modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+#modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 500px;
+    background: white;
+    overflow-y: scroll;
+}
+
+.modal--open {
+    overflow-y: hidden;
+}
+
+/******************
+ * MISC
+ */
+
+img.candidate-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px 0;
 }
