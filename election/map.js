@@ -76,8 +76,7 @@ $(document).ready(function() {
         $scope.stateTopicsTrump = [];
         $scope.positiveArticlesClintonNation = [];
         $scope.positiveArticlesTrumpNation = [];
-        $scope.countryView = true;
-        $scope.stateView = false;
+        $scope.countryView = false;
 
         $scope.validateDate = function(){
             if ($scope.daterange.start_date > $scope.daterange.end_date){
@@ -180,7 +179,6 @@ $(document).ready(function() {
 
         $scope.getCountryInfo = function(){
             $scope.countryView = true;
-            $scope.stateView = false;
 
             $scope.articlesNoState();
             $scope.statesTopicApprove();
@@ -189,9 +187,6 @@ $(document).ready(function() {
         };
 
         $scope.getStateInfo = function(state){
-            $scope.countryView = false;
-            $scope.stateView = true;
-
             if (state == 'District of Columbia')
                 state = 'D.C.';
             $scope.selectedState = state;

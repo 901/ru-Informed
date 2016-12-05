@@ -35,13 +35,13 @@ nav {
 .form-div-parent {
     margin-top: 80px;
     width: 100%;
-    min-height: 50px;
+    min-height: 20px;
 }
 
 .form-div-child {
     margin: 0 auto;
     height: auto;
-    width: 30%;
+    width: 350px;
     position: relative;
 }
 
