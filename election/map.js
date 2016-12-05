@@ -14,6 +14,7 @@ $(document).ready(function() {
         $scope.positiveArticlesClintonNation = [];
         $scope.positiveArticlesTrumpNation = [];
         $scope.countryView = true;
+        $scope.stateView = false;
 
         $scope.validateDate = function(){
             if ($scope.daterange.start_date > $scope.daterange.end_date){
@@ -52,6 +53,8 @@ $(document).ready(function() {
 
         $scope.getCountryInfo = function(){
             $scope.countryView = true;
+            $scope.stateView = false;
+
             $scope.articlesNoState();
             $scope.statesTopicApprove();
             $scope.statesPosArticles();
@@ -60,10 +63,20 @@ $(document).ready(function() {
 
         $scope.getStateInfo = function(state){
             $scope.countryView = false;
+            $scope.stateView = true;
 
             if (state == 'District of Columbia')
                 state = 'D.C.';
             $scope.selectedState = state;
+            var url = getFormattedUrl("polls/state", ["start_date", "end_date", "state"], [$scope.daterange.d1, $scope.daterange.d2, state.toLowerCase()]);
+            $http.get(url).success(function(response){
+                $scope.statePoll = {
+                    state: state,
+                    clinton: response.results[0].clinton,
+                    trump: response.results[0].trump
+
+                };
+            });
 
             // get top 10 topics from clinton and trump by state
             $scope.topics(state.toLowerCase());
@@ -76,7 +89,6 @@ $(document).ready(function() {
         $scope.topics = function(state){
             var topicsClintonUrl = getFormattedUrl('topics/favorable',
                 ['state', 'start_date', 'end_date', 'candidate'], [state, $scope.daterange.d1, $scope.daterange.d2, 'clinton']);
-            console.log(topicsClintonUrl);
 
             $http.get(topicsClintonUrl).success(function(response){
                 if (response.topics.length == 0)
@@ -203,7 +215,6 @@ $(document).ready(function() {
 
             $http.get(url).success(function(response){
                 $scope.distributedTopics = response.topics;
-                console.log($scope.distributedTopics);
             });
         }
 

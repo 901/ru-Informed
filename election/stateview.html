@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -18,9 +18,7 @@
     <![endif]-->
     <!--<link rel="stylesheet" href="dashboard.css"></link>-->
 
-    <!--Font Families
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Raleway:400i" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">-->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Raleway:400" rel="stylesheet">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="" crossorigin="anonymous"></script>
@@ -32,44 +30,24 @@
   </head>
   <body ng-app="myApp">
 
-    <div class="container-fluid">
-       <nav class="nav header navbar">
-           <div class="col-sm-3">
-           <h1 class="title">RU Informed?</h1>
-           <span class="subtitle">The election through the eyes of the News</span>
-           </div>
-           <div>
-               <br>
-               <nav class="nav nav-inline">
-                 <a class="nav-link" href="index.html">Home | </a>
-                 <!--<a class="nav-link" href="#">News Coverage</a>-->
-                 <a class="nav-link active" href="stateview.html">State-by-State | </a>
-                 <a class="nav-link-active" href="#">Article Find </a>
-               </nav>
-           </div>
-       </nav>
-
-     <div class="container-fluid" ng-controller="DateController" style="margin-top:100px;">
-         <!-- Old nav, might add later-->
-         <!--<nav class="nav header navbar-fixed-top">
-             <div class="col-sm-3">
-             <h1 class="title">RU Informed?</h1>
-             <span class="subtitle">Getting you the right news</span>
-             </div>
-             <div>
-                 <br>
-                 <nav class="nav nav-inline">
-                   <a class="nav-link" href="issues.html">Home</a>
-                   <a class="nav-link active" href="#">Article Find</a>
-                 </nav>
-             </div>
-         </nav>-->
-
-            <!--<div class="offset-sm-1 col-sm-4 sidebar">
-               <div id="pie" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-           </div>-->
-
-        <div class="row">
+     <div class="container-fluid" ng-controller="DateController">
+         <div class="row">
+             <nav class="nav header navbar-fixed-top">
+                 <div class="col-sm-4">
+                 <h1 class="title">RU Informed?</h1>
+                 <span class="subtitle">See the election through the eyes of the News</span>
+                 </div>
+                 <div>
+                     <br>
+                     <nav class="nav nav-inline">
+                       <a class="nav-link" href="index.html">Home | </a>
+                       <a class="nav-link active" href="stateview.html">State-by-State | </a>
+                       <a class="nav-link-active" href="#">Article Find </a>
+                     </nav>
+                 </div>
+             </nav>
+        </div>
+        <div class="row view">
             <div class="col-sm-2">
                 <form novalidate class="simple-form">
                     <label for"date1">Date Range
@@ -78,7 +56,7 @@
                     </label>
                     <input type="button" ng-click="validateDate()" value="Go" /></br>
                 </form>
-                <table class="state-list">
+                <table class="state-list" ng-show="datedPolls.length > 0">
                     <tr>
                         <th>State</th>
                         <th>Clinton</th>
@@ -91,20 +69,21 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-sm-10 nation-view" ng-show="countryPolls" ng-hide="selectedState">
+            <div class="col-sm-10 nation-view" ng-show="countryView==true" ng-hide="stateView==true">
                 <h1 ng-model="countryPolls">Nation - Clinton: {{countryPolls.clinton|number:1}}% Trump: {{countryPolls.trump|number:1}}%</h2>
                 <div class="row">
-                    <div class="distrib-topics col-sm-12">
-                        <table ng-show="distributedTopics">
+                    <div class="distrib-topics col-sm-12" ng-show="distributedTopics">
+                        <h4>Top 15 Frequent Topics in the Media</h4>
+                        <table>
                             <tr>
+                                <th>Rank</th>
                                 <th>Topic</th>
-                                <th>#Articles</th>
                                 <th>Clinton Supports?</th>
                                 <th>Trump Supports?</th>
                             </tr>
-                            <tr ng-repeat="topic in distributedTopics">
+                            <tr ng-repeat="topic in distributedTopics | limitTo: 15" ng-style="topic.clinton_approves==topic.trump_approves && {'background-color':'purple'} || topic.clinton_approves == 'y' &&  {'background-color':'blue'} || topic.trump_approves == 'y' &&  {'background-color':'red'}">
+                                <td>{{$index + 1}}</td>
                                 <td>{{topic.topic }}</td>
-                                <td>{{topic.article_count}}</td>
                                 <td>{{topic.clinton_approves}}</td>
                                 <td>{{topic.trump_approves}}</td>
                             </tr>
@@ -157,8 +136,8 @@
                 </div>
             </div>
 
-            <div class="col-sm-10 state-view" ng-show="selectedState" ng-hide="countryView==true">
-                <h1 ng-model="selectedState">{{selectedState}}: Clinton % Trump %</h2>
+            <div class="col-sm-10 state-view" ng-show="stateView==true" ng-hide="countryView==true">
+                <h1 ng-model="statePoll">{{statePoll.state}}: Clinton {{statePoll.clinton | number: 1}} % Trump {{statePoll.trump | number: 1}} %</h2>
                 <div class="col-sm-6 clinton" ng-hide="stateTopicsClinton.length == 0">
                     <div class="state-topics">
                         <h4 ng-model="selectedState">Topics in the News that Clinton Supports in {{selectedState}}</h4>

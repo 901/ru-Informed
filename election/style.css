@@ -1,11 +1,52 @@
 /* Index */
 
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f7f7f7;
+    font-size: 12px;
+}
+
+nav {
+  margin-bottom: 0px;
+  margin-left: 0px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.title {
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 250%;
+    margin:0;
+}
+
+.subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-size: 90%;
+    letter-spacing: 1.2px;
+}
+
+.navbar-fixed-top {
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid red;
+}
+
+.view {
+    margin-top: 80px;
+}
+
+.state-list td {
+    color: #f9f9f9;
+}
+
 .state-view > h1 {
     text-align: center;
 }
 
-.state-view, .state-topics > table  {
-    width: 100%;
+
+.state-view, .state-topics, table, td {
+    padding:0 15px 0 0;
 }
 
 .state-view, .clinton, .state-topics {
@@ -18,11 +59,14 @@
 
 
 /* Nation view  */
-
 .nation-view > h1 {
     text-align: center;
 }
 
-.distrib-topics {
+.distrib-topics, table {
     width: 100%;
+}
+
+.distrib-topics td {
+    color: #f9f9f9;
 }
