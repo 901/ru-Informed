@@ -24,204 +24,305 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="" crossorigin="anonymous"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-
-    <script src="map.js"></script>
-    <script src="util.js"></script>
     <link rel="stylesheet" text="text/css" href="style.css">
   </head>
-  <body ng-app="myApp">
+  <body>
 
-    <div class="container-fluid">
-       <nav class="nav header navbar-fixed-top">
-           <div class="col-sm-3">
-           <h1 class="title">RU Informed?</h1>
-           <span class="subtitle">The election through the eyes of the News</span>
-           </div>
-           <div>
-               <br>
-               <nav class="nav nav-inline">
-                 <a class="nav-link" href="map.html">Home | </a>
-                 <!--<a class="nav-link" href="#">News Coverage</a>-->
-                 <a class="nav-link active" href="index.html">State-by-State | </a>
-                 <a class="nav-link-active" href="#">Article Find </a>
-               </nav>
-           </div>
-       </nav>
+  <div class="container-fluid">
+     <nav class="nav header navbar-fixed-top">
+         <div class="col-sm-3">
+         <h1 class="title">RU Informed?</h1>
+         <span class="subtitle">The election through the eyes of the News</span>
+         </div>
+         <div>
+             <br>
+             <nav class="nav nav-inline">
+               <a class="nav-link" href="index.html">Home | </a>
+               <!--<a class="nav-link" href="#">News Coverage</a>-->
+               <a class="nav-link active" href="stateview.html">State-by-State | </a>
+               <a class="nav-link-active" href="#">Article Find </a>
+             </nav>
+         </div>
+     </nav>
 
-     <div class="container-fluid" ng-controller="DateController" style="margin-top:100px;">
-         <!-- Old nav, might add later-->
-         <!--<nav class="nav header navbar-fixed-top">
-             <div class="col-sm-3">
-             <h1 class="title">RU Informed?</h1>
-             <span class="subtitle">Getting you the right news</span>
-             </div>
-             <div>
-                 <br>
-                 <nav class="nav nav-inline">
-                   <a class="nav-link" href="issues.html">Home</a>
-                   <a class="nav-link active" href="#">Article Find</a>
-                 </nav>
-             </div>
-         </nav>-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="http://datamaps.github.io/scripts/0.4.4/datamaps.all.js"></script>
+    <div id="map_election" style="position: fixed; width: 1200px; height: 750px; margin-left: 150px; margin-top: -10px"></div>
+    <script>
+      var election = new Datamap({
+      scope: 'usa',
+      element: document.getElementById('map_election'),
+      geographyConfig: {
+      highlightBorderColor: '#bada55',
+      popupTemplate: function(geography, data) {
+        return '<div class="hoverinfo">' + geography.properties.name + ' Electoral Votes:' +  data.electoralVotes + ' '
+      },
+      highlightBorderWidth: 3
+      },
 
-            <!--<div class="offset-sm-1 col-sm-4 sidebar">
-               <div id="pie" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-           </div>-->
-
-        <div class="row">
-            <div class="col-sm-2">
-                <form novalidate class="simple-form">
-                    <label for"date1">Date Range
-                        <input type="date" name="date1" ng-model=daterange.start_date>
-                        <input type="date" name="date2" ng-model=daterange.end_date>
-                    </label>
-                    <input type="button" ng-click="validateDate()" value="Go" /></br>
-                </form>
-                <table class="state-list">
-                    <tr>
-                        <th>State</th>
-                        <th>Clinton</th>
-                        <th>Trump</th>
-                    </tr>
-                    <tr ng-repeat="state in datedPolls" ng-click="getStateInfo(state.state)">
-                        <td style="background-color:{{state.clinton>state.trump?'blue':'red'}}">{{state.state}}</td>
-                        <td style="background-color:{{state.clinton>state.trump?'blue':'red'}}">{{state.clinton | number:1}}</td>
-                        <td style="background-color:{{state.clinton>state.trump?'blue':'red'}}">{{state.trump | number: 1}}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-sm-10 nation-view" ng-show="countryPolls" ng-hide="selectedState">
-                <h1 ng-model="countryPolls">Nation - Clinton: {{countryPolls.clinton|number:1}}% Trump: {{countryPolls.trump|number:1}}%</h2>
-                <div class="row">
-                    <div class="distrib-topics col-sm-12">
-                        <table ng-show="distributedTopics">
-                            <tr>
-                                <th>Topic</th>
-                                <th>#Articles</th>
-                                <th>Clinton Supports?</th>
-                                <th>Trump Supports?</th>
-                            </tr>
-                            <tr ng-repeat="topic in distributedTopics">
-                                <td>{{topic.topic }}</td>
-                                <td>{{topic.article_count}}</td>
-                                <td>{{topic.clinton_approves}}</td>
-                                <td>{{topic.trump_approves}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 clinton">
-                        <div class="states-pos-article" ng-show="statesPositiveClinton">
-                            <h4>States in which Clinton is winning and there are more positive articles than negative articles</h4>
-                            <span ng-repeat="state in statesPositiveClinton">{{state}}, </span>
-                        </div>
-                        <div class="states-topic-approve" ng-show="statesTopicApproveClinton">
-                            <h4>States in which Clinton is winning and there are more positive articles than negative articles about topics that Clinton supports</h4>
-                            <span ng-repeat="state in statesTopicApproveClinton">{{state}}, </span>
-                        </div>
-                        <div ng-hide="positiveArticlesClintonNation.length == 0">
-                            <h4 ng-model="positiveArticlesClintonNation">Positive Articles in the News about Clinton ({{positiveArticlesClintonNation.length}})</h4>
-                            <table class="state-articles">
-                                <tr ng-repeat="article in positiveArticlesClintonNation | limitTo: 10">
-                                    <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
-                                    <td>{{article.source}}</td>
-                                    <td><a ng-href="{{article.url}}">{{article.title}}</a></td>
-                                    <td>{{article.topic}}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 trump">
-                        <div class="states-pos-article" ng-show="statesPositiveTrump">
-                            <h4>States in which Trump is winning and there are more positive articles than negative articles</h4>
-                            <span ng-repeat="state in statesPositiveTrump">{{state}}, </span>
-                        </div>
-                        <div class="states-topic-approve" ng-show="statesTopicApproveTrump">
-                            <h4>States in which Trump is winning and there are more positive articles than negative articles about topics that Trump supports</h4>
-                            <span ng-repeat="state in statesTopicApproveTrump">{{state}}, </span>
-                        </div>
-                        <div ng-hide="positiveArticlesTrumpNation.length == 0">
-                            <h4 ng-model="positiveArticlesTrumpNation">Positive Articles in the News About Trump ({{positiveArticlesTrumpNation.length}})</h4>
-                            <table class="state-articles">
-                                <tr ng-repeat="article in positiveArticlesTrumpNation | limitTo: 10">
-                                    <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
-                                    <td>{{article.source}}</td>
-                                    <td> <a ng-href="{{article.url}}">{{article.title}}</a></td>
-                                    <td>{{article.topic}}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-10 state-view" ng-show="selectedState" ng-hide="countryView==true">
-                <h1 ng-model="selectedState">{{selectedState}}: Clinton % Trump %</h2>
-                <div class="col-sm-6 clinton" ng-hide="stateTopicsClinton.length == 0">
-                    <div class="state-topics">
-                        <h4 ng-model="selectedState">Topics in the News that Clinton Supports in {{selectedState}}</h4>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Count</th>
-                            </tr>
-                            <tr ng-repeat="topic in stateTopicsClinton">
-                                <td>{{topic.topic}}</td>
-                                <td>{{topic.article_count}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div ng-hide="positiveArticlesClinton.length == 0">
-                        <h4 ng-model="selectedState">Positive Articles in the News about Clinton in {{selectedState}}</h4>
-                        <table class="state-articles">
-                            <tr ng-repeat="article in positiveArticlesClinton">
-                                <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
-                                <td>{{article.source}}</td>
-                                <td><a ng-href="{{article.url}}">{{article.title}}</a></td>
-                                <td>{{article.topic}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-sm-6 trump" ng-show="selectedState">
-                    <div class="state-topics" ng-hide="stateTopicsTrump.length == 0">
-                        <h4 ng-model="selectedState">Topics in the News that Trump Supports in {{selectedState}}</h4>
-                        <table>
-                            <tr>
-                                <th>Topic</th>
-                                <th>Count</th>
-                            </tr>
-                            <tr ng-repeat="topic in stateTopicsTrump">
-                                <td>{{topic.topic}}</td>
-                                <td>{{topic.article_count}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div ng-hide="positiveArticlesTrump.length ==0">
-                        <h4 ng-model="selectedState">Positive Articles in the News About Trump in {{selectedState}}</h4>
-                        <table class="state-articles">
-                            <tr ng-repeat="article in positiveArticlesTrump">
-                                <td>{{article.date | date: 'yyyy-MM-dd'}}</td>
-                                <td>{{article.source}}</td>
-                                <td> <a ng-href="{{article.url}}">{{article.title}}</a></td>
-                                <td>{{article.topic}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
+      fills: {
+        'Republican': '#CC4731',
+        'Democrat': '#306596',
+        'Heavy Democrat': '#667FAF',
+        'Light Democrat': '#A9C0DE',
+        'Heavy Republican': '#CA5E5B',
+        'Light Republican': '#EAA9A8',
+        defaultFill: '#EDDC4E'
+      },
+      data:{
+      "AZ": {
+        "fillKey": "Republican",
+        "electoralVotes": 5
+      },
+      "CO": {
+        "fillKey": "Light Democrat",
+        "electoralVotes": 5
+      },
+      "DE": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "FL": {
+        "fillKey": "Republican",
+        "electoralVotes": 29
+      },
+      "GA": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "HI": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "ID": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "IL": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "IN": {
+        "fillKey": "Republican",
+        "electoralVotes": 11
+      },
+      "IA": {
+        "fillKey": "Light Democrat",
+        "electoralVotes": 11
+      },
+      "KS": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "KY": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "LA": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "MD": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "ME": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "MA": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "MN": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "MI": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "MS": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "MO": {
+        "fillKey": "Republican",
+        "electoralVotes": 13
+      },
+      "MT": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "NC": {
+        "fillKey": "Light Republican",
+        "electoralVotes": 32
+      },
+      "NE": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "NV": {
+        "fillKey": "Heavy Democrat",
+        "electoralVotes": 32
+      },
+      "NH": {
+        "fillKey": "Light Democrat",
+        "electoralVotes": 32
+      },
+      "NJ": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "NY": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "ND": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "NM": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "OH": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "OK": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "OR": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "PA": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "RI": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "SC": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "SD": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "TN": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "TX": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "UT": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "WI": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "VA": {
+        "fillKey": "Light Democrat",
+        "electoralVotes": 32
+      },
+      "VT": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "WA": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "WV": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "WY": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "CA": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "CT": {
+        "fillKey": "Democrat",
+        "electoralVotes": 32
+      },
+      "AK": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "AR": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      },
+      "AL": {
+        "fillKey": "Republican",
+        "electoralVotes": 32
+      }
+      }
+      });
+      election.labels();
+    </script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <div id="election_result" style="min-width: 210px; height: 300px; max-width: 300px; margin-top: 100px;"> </div>
+    <script>
+          $(function () {
+          Highcharts.setOptions({
+              colors: ['#DD1021', '#0202FF']});
+          Highcharts.chart('election_result', {
+              chart: {
+                  plotBackgroundColor: null,
+                  plotBorderWidth: 0,
+                  plotShadow: false
+              },
+              title: {
+                  text: 'Presidential<br>Election<br>2016',
+                  align: 'center',
+                  verticalAlign: 'middle',
+                  y: 40
+              },
+              tooltip: {
+                  pointFormat: 'Electoral Votes: <b>{point.y}-{point.percentage:.1f}%</b>'
+              },
+              plotOptions: {
+                  pie: {
+                      dataLabels: {
+                          enabled: true,
+                          distance: -50,
+                          style: {
+                              fontWeight: 'bold',
+                              color: 'white'
+                          }
+                      },
+                      startAngle: -90,
+                      endAngle: 90,
+                      center: ['50%', '75%']
+                  }
+              },
+              series: [{
+                  type: 'pie',
+                  name: '2016 Presidential Election',
+                  innerSize: '50%',
+                  data: [
+                      ['Trump',   302],
+                      ['Clinton',       232],
+                  ]
+              }]
+          });
+      });
+    </script>
   </body>
 </html>
