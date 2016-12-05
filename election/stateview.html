@@ -63,9 +63,9 @@
                         <th>Trump</th>
                     </tr>
                     <tr ng-repeat="state in datedPolls" ng-click="getStateInfo(state.state)">
-                        <td style="background-color:{{state.clinton>state.trump?'blue':'red'}}">{{state.state}}</td>
-                        <td style="background-color:{{state.clinton>state.trump?'blue':'red'}}">{{state.clinton | number:1}}</td>
-                        <td style="background-color:{{state.clinton>state.trump?'blue':'red'}}">{{state.trump | number: 1}}</td>
+                        <td style="background-color:{{state.clinton>state.trump?'#31A2FE':'#FF585B'}}">{{state.state}}</td>
+                        <td style="background-color:{{state.clinton>state.trump?'#31A2FE':'#FF585B'}}">{{state.clinton | number:1}}</td>
+                        <td style="background-color:{{state.clinton>state.trump?'#31A2FE':'#FF585B'}}">{{state.trump | number: 1}}</td>
                     </tr>
                 </table>
             </div>
@@ -81,7 +81,7 @@
                                 <th>Clinton Supports?</th>
                                 <th>Trump Supports?</th>
                             </tr>
-                            <tr ng-repeat="topic in distributedTopics | limitTo: 15" ng-style="topic.clinton_approves==topic.trump_approves && {'background-color':'purple'} || topic.clinton_approves == 'y' &&  {'background-color':'blue'} || topic.trump_approves == 'y' &&  {'background-color':'red'}">
+                            <tr ng-repeat="topic in distributedTopics | limitTo: 15" ng-style="topic.clinton_approves==topic.trump_approves && {'background-color':'#7C87C3'} || topic.clinton_approves == 'y' &&  {'background-color':'#31A2FE'} || topic.trump_approves == 'y' &&  {'background-color':'#FF585B'}">
                                 <td>{{$index + 1}}</td>
                                 <td>{{topic.topic }}</td>
                                 <td>{{topic.clinton_approves}}</td>
