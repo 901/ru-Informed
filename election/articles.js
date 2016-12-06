@@ -32,7 +32,8 @@ $(document).ready(function() {
                 $scope.dateError='';
             }
 
-            console.log($scope.selectedTopic + '\n'+ $scope.keywords);
+            $scope.daterange.d1 = getFormattedDate($scope.daterange.start_date);
+            $scope.daterange.d2 = getFormattedDate($scope.daterange.end_date);
 
             // parse keywords
             keys = ["start_date", "end_date", "topic"];
@@ -52,7 +53,6 @@ $(document).ready(function() {
             // get articles
             var url = getFormattedUrl("articles/search", keys, values);
             $http.get(url).success(function(response){
-                console.log(response);
                 $scope.articles = response.articles;
             })
         }
