@@ -194,6 +194,8 @@ $(document).ready(function() {
             $scope.statesTopicApprove();
             $scope.statesPosArticles();
             $scope.distribTopics();
+            $scope.sentimentSources();
+            $scope.topSourcesForCandidateArticles();
         };
 
         $scope.getStateInfo = function(state){
@@ -214,6 +216,7 @@ $(document).ready(function() {
             $scope.topics(state.toLowerCase());
             // get positive articles
             $scope.positiveArticles(state.toLowerCase());
+            //$scope.stateSources(state.toLowerCase());
 
 
         };
@@ -270,6 +273,39 @@ $(document).ready(function() {
 
             });
         };
+
+        $scope.sentimentSources = function(){
+            var urlPos = getFormattedUrl('sources/positive', ['start_date', 'end_date'], [$scope.daterange.d1, $scope.daterange.d2]);
+            var urlNeg = getFormattedUrl('sources/negative', ['start_date', 'end_date'], [$scope.daterange.d1, $scope.daterange.d2]);
+
+            $http.get(urlPos).success(function(response){
+                $scope.posSources = response.sources;
+            });
+
+            $http.get(urlNeg).success(function(response){
+                $scope.negSources = response.sources;
+            });
+        };
+
+        $scope.topSourcesForCandidateArticles = function(){
+            var urlClinton = getFormattedUrl('sources/candidate', ['start_date', 'end_date', 'candidate'], [$scope.daterange.d1, $scope.daterange.d2, 'clinton']);
+            var urlTrump = getFormattedUrl('sources/candidate', ['start_date', 'end_date', 'candidate'], [$scope.daterange.d1, $scope.daterange.d2, 'trump']);
+
+            $http.get(urlClinton).success(function(response){
+                $scope.clintonSources = response.sources;
+            });
+
+            $http.get(urlClinton).success(function(response){
+                $scope.trumpSources = response.sources;
+            });
+        };
+
+        /*$scope.stateSources = function(state){
+            var url = getFormattedUrl('states/sources', ['start_date', 'end_date', 'source'], [$scope.daterange.d1, $scope.daterange.d2, state]);
+            $http.get(url).success(function(response){
+                $scope.sourcesOfSelectedState = response.sources;
+            });
+        };*/
 
 
         $scope.articlesNoState = function(){
