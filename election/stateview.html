@@ -46,7 +46,7 @@
                      <nav class="nav nav-inline">
                        <a class="nav-link" href="index.html">Result | </a>
                        <a class="nav-link active" href="stateview.html">State-by-State | </a>
-                       <a class="nav-link-active" href="#">Article Find |</a>
+                       <a class="nav-link-active" href="articles.html">Article Find |</a>
                        <a class="nav-link-active" href="about.html">About </a>
                      </nav>
                  </div>
@@ -121,6 +121,7 @@
                     <input type="date" name="date1" ng-model=daterange.start_date>
                     <input type="date" name="date2" ng-model=daterange.end_date>
                     <input type="button" ng-click="validateDate()" value="Go" /></br>
+                    <span ng-bind="dateError"></span>
                 </form>
             </div>
         </div>
@@ -156,7 +157,7 @@
             </table>
         </div>
 
-        <div style="border-top: 1px solid #DEDEDE; margin-top: 20px;" ng-show="countryView==true">
+        <div style="border-top: 1px solid #DEDEDE; margin-top: 20px;"  ng-show="countryView==true">
             <h2 style="text-transform: uppercase; letter-spacing: 2px; width: 100%; text-align: center;"><span style="color: #31A2FE">Clinton</span> <span style="font-size: 12px;">vs.</span> <span style="color: #FF585B">Trump</span></h2>
             <div class="col-sm-12 nation-view">
                 <div class="row">
