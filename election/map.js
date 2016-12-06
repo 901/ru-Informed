@@ -84,11 +84,16 @@ $(document).ready(function() {
 
         $scope.validateDate = function(){
             if ($scope.daterange.start_date > $scope.daterange.end_date){
-                console.log("error");
+                $scope.dateError = 'Start date is greater than end date';
                 return;
+            }else if ($scope.daterange.start_date > (new Date('12-31-2016')) || $scope.daterange.end_date > (new Date('11-09-2016'))){
+
+                $scope.dateError='data only available within range 01-01-2016 and 11-08-2016';
+                return;
+            } else {
+                $scope.dateError='';
             }
-            /*$scope.daterange.start_date = daterange.start_date;
-            $scope.daterange.end_date = daterange.start*/
+
             $scope.daterange.d1 = getFormattedDate($scope.daterange.start_date);
             $scope.daterange.d2 = getFormattedDate($scope.daterange.end_date);
 

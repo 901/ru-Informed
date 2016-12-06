@@ -45,6 +45,19 @@ nav {
     position: relative;
 }
 
+.form-div-parent-article {
+    margin-top: 80px;
+    width: 100%;
+    min-height: 20px;
+}
+
+.form-div-child-article {
+    margin: 0 auto;
+    height: auto;
+    width: 900px;
+    position: relative;
+}
+
 .state-list td {
     color: #f9f9f9;
 }
@@ -157,4 +170,10 @@ img.candidate-pic {
 #dc-label {
     cursor: pointer;
     padding: 5px;
+}
+
+/* Article Find */
+
+.keyword-articles {
+    margin: 20px;
 }
