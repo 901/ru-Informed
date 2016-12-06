@@ -157,6 +157,37 @@
             </table>
         </div>
 
+        <div class="sentiment-sources" style="margin-top: 20px;" ng-show="posSources">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 style="width: 100%; text-align: center; text-transform: uppercase; letter-spacing: 2px;">Top 10 News Sources that have the most articles with positive sentiment</h4>
+                    <table>
+                        <tr class="topic_row">
+                            <th class="topic_col">Rank</th>
+                            <th class="topic_col">Source</th>
+                        </tr>
+                        <tr class="topic_row" ng-repeat="source in posSources">
+                            <td class="topic_col">{{$index + 1}}</td>
+                            <td class="topic_col">{{source}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <h4 style="width: 100%; text-align: center; text-transform: uppercase; letter-spacing: 2px;">Top 10 News Sources that have the most articles with negative sentiment</h4>
+                    <table>
+                        <tr class="topic_row">
+                            <th class="topic_col">Rank</th>
+                            <th class="topic_col">Source</th>
+                        </tr>
+                        <tr class="topic_row" ng-repeat="source in negSources">
+                            <td class="topic_col">{{$index + 1}}</td>
+                            <td class="topic_col">{{source}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
         <div style="border-top: 1px solid #DEDEDE; margin-top: 20px;"  ng-show="countryView==true">
             <h2 style="text-transform: uppercase; letter-spacing: 2px; width: 100%; text-align: center;"><span style="color: #31A2FE">Clinton</span> <span style="font-size: 12px;">vs.</span> <span style="color: #FF585B">Trump</span></h2>
             <div class="col-sm-12 nation-view">
@@ -171,10 +202,22 @@
                         <div id="clinton-map-2" style="width: 100%; height: 300px;"></div>
                         <p style="position: absolute; right: 0; top: 680px; color: #31A2FE" ng-show="statesTopicApproveClinton.indexOf('washington d.c.') !== -1">Washington, D.C.</p>
 
-                        <div ng-hide="positiveArticlesClintonNation.length == 0">
-                            <h4 ng-model="positiveArticlesClintonNation">Positive Articles in the News about <span style="font-weight:bold;">ONLY</span> Clinton and <span style="font-weight:bold;">NOT</span> Trump <span style="font-weight: bold">({{positiveArticlesClintonNation.length}})</span></h4>
+                        <h4>Top 10 News Sources that Talk About <span style="font-weight:bold;">ONLY</span> Clinton and <span style="font-weight:bold;">NOT</span> Trump</h4>
+                        <table>
+                            <tr class="topic_row">
+                                <th class="topic_col">Rank</th>
+                                <th class="topic_col">Source</th>
+                            </tr>
+                            <tr class="topic_row" ng-repeat="source in clintonSources">
+                                <td class="topic_col">{{$index + 1}}</td>
+                                <td class="topic_col">{{source.source}}</td>
+                            </tr>
+                        </table>
+
+                        <div class="posArticles" ng-hide="positiveArticlesClintonNation.length == 0">
+                            <h4 ng-model="positiveArticlesClintonNation">Articles of Postive Sentiment in the News about <span style="font-weight:bold;">ONLY</span> Clinton and <span style="font-weight:bold;">NOT</span> Trump <span style="font-weight: bold">({{positiveArticlesClintonNation.length}})</span></h4>
                             <table class="state-articles">
-                                <tr class="topic_row" style="padding: 50px 0;" ng-repeat="article in positiveArticlesClintonNation | limitTo: 10">
+                                <tr class="topic_row" style="padding: 50px 0;" ng-repeat="article in positiveArticlesClintonNation">
                                     <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
                                     <td class="topic_col">{{article.source}}</td>
                                     <td class="topic_col"><a ng-href="{{article.url}}">{{article.title}}</a></td>
@@ -193,17 +236,35 @@
                         <div id="trump-map-2" style="width: 100%; height: 300px;"></div>
                         <p style="position: absolute; right: 0; top: 680px; color: #31A2FE" ng-show="statesTopicApproveTrump.indexOf('washington d.c.') !== -1">Washington, D.C.</p>
 
-                        <div ng-hide="positiveArticlesTrumpNation.length == 0">
-                            <h4 ng-model="positiveArticlesTrumpNation">Positive Articles in the News about <span style="font-weight:bold;">ONLY</span> Trump and <span style="font-weight:bold;">NOT</span> Clinton <span style="font-weight: bold">({{positiveArticlesTrumpNation.length}})</span></h4>
+
+                        <h4>Top 10 News Sources that Talk About <span style="font-weight:bold;">ONLY</span> Trump and <span style="font-weight:bold;">NOT</span> Clinton</h4>
+                        <table>
+                            <tr class="topic_row">
+                                <th class="topic_col">Rank</th>
+                                <th class="topic_col">Source</th>
+                            </tr>
+                            <tr class="topic_row" ng-repeat="source in trumpSources">
+                                <td class="topic_col">{{$index + 1}}</td>
+                                <td class="topic_col">{{source.source}}</td>
+                            </tr>
+                        </table>
+
+                        <div class="posArticles" ng-hide="positiveArticlesTrumpNation.length == 0">
+                            <h4 ng-model="positiveArticlesTrumpNation">Articles of Positive Sentiment in the News about <span style="font-weight:bold;">ONLY</span> Trump and <span style="font-weight:bold;">NOT</span> Clinton <span style="font-weight: bold">({{positiveArticlesTrumpNation.length}})</span></h4>
                             <table class="state-articles">
-                                <tr class="topic_row" ng-repeat="article in positiveArticlesTrumpNation | limitTo: 10">
-                                    <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
-                                    <td class="topic_col">{{article.source}}</td>
-                                    <td class="topic_col"> <a ng-href="{{article.url}}">{{article.title}}</a></td>
-                                    <td class="topic_col">{{article.topic}}</td>
-                                </tr>
+                                <tbody>
+                                    <tr class="topic_row" ng-repeat="article in positiveArticlesTrumpNation">
+                                        <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
+                                        <td class="topic_col">{{article.source}}</td>
+                                        <td class="topic_col"> <a ng-href="{{article.url}}">{{article.title}}</a></td>
+                                        <td class="topic_col">{{article.topic}}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
+
+
+
                     </div>
                 </div>
             </div>

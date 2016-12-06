@@ -98,6 +98,13 @@ nav {
     color: #f9f9f9;
 }
 
+.posArticles tbody {
+    display: block;
+    max-height: 400px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 
 /*******************
  * Topic Table
