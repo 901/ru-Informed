@@ -52,26 +52,29 @@
 
          <div class="row form-div-parent-article">
              <div class="form-div-child-article">
-                 <h4 style="text-align:center;">Search our database for election articles you want to find.</h4>
-                 <p style="text-align:center;">Separate keywords by comma (ex. emails, Hillary Clinton)</p>
+                 <h4 style="text-align:left;">Search our database for election articles.</h4>
                  <form novalidate class="simple-form">
                      <label for="date1">Start date</label>
                      <input type="date" name="date1" ng-model=daterange.start_date>
                      <label for="date2">End date</label>
                      <input type="date" name="date2" ng-model=daterange.end_date>
-                     <label for="topic">Topic</label>
-                     <select ng-model="selectedTopic" style="display: inline;">
-                         <option ng-repeat="topic in topics">{{topic.topic}}</option>
+                     <label for="state">State</label>
+                     <select ng-model="selectedState" ng-change="validateFormState()">
+                         <option ng-repeat="state in states">{{state}}</option>
                      </select>
-                     <label for="keywords">Keywords</label>
-                     <input type="text" ng-model="keywords"></input>
-                     <input type="button" ng-click="validateForm()" value="Go" /></br>
+                     <div style="display:inline-block;" ng-show="selectedState">
+                         <label for="topic">Topic</label>
+                         <select ng-model="selectedTopic" style="display: inline;" ng-change="getArticles()">
+                             <option ng-repeat="topic in topics">{{topic.topic}}</option>
+                         </select>
+                    </div>
                      <span ng-bind="formError"></span>
                  </form>
              </div>
          </div>
-         <div class="row">
-             <div class="col-sm-12">
+         <div class="row content">
+             <div class="col-sm-4" id="pie"></div>
+             <div class="col-sm-8">
                  <table class="keyword-articles">
                      <tr class="topic_row" ng-repeat="article in articles">
                          <td class="topic_col">{{article.date | date: 'yyyy-MM-dd'}}</td>
@@ -82,34 +85,6 @@
                  </table>
             </div>
          </div>
-        <!--<div class="row view">
-           <div class="offset-sm-1 col-sm-4 sidebar">
-               <div id="pie" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-            </div>
-            <div class="col-sm-7 offset-sm-5 main">
-                <h3>{{currentCategory}}: {{currentArticles.count}} stories</h3>
-                <div id="articles">
-                    <table>
-                        <tr ng-repeat="article in currentArticles.articles">
-                            <td id="date">
-                                {{article.date}}
-                            </td>
-                            <td id="source">
-                                {{article.source}}
-                            </td>
-                            <td>
-                                <a ng-href="{{article.url}}">{{article.name}}</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div id="articles">
-                    <ul ng-repeat="article in currentArticles.articles" style="list-style: none;">
-                        <li class="active"><a ng-href={{article.url}}><h4>{{article.name}}</h4></a></li>
-                    </ul>
-                </div>
-            </div>-->
     </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>

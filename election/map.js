@@ -295,7 +295,7 @@ $(document).ready(function() {
                 $scope.clintonSources = response.sources;
             });
 
-            $http.get(urlClinton).success(function(response){
+            $http.get(urlTrump).success(function(response){
                 $scope.trumpSources = response.sources;
             });
         };
