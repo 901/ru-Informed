@@ -55,9 +55,9 @@
                  <h4 style="text-align:left;">Search our database for election articles.</h4>
                  <form novalidate class="simple-form">
                      <label for="date1">Start date</label>
-                     <input type="date" name="date1" ng-model=daterange.start_date>
+                     <input type="date" name="date1" ng-model=daterange.start_date ng-change="validateFormState()">
                      <label for="date2">End date</label>
-                     <input type="date" name="date2" ng-model=daterange.end_date>
+                     <input type="date" name="date2" ng-model=daterange.end_date ng-change="validateFormState()">
                      <label for="state">State</label>
                      <select ng-model="selectedState" ng-change="validateFormState()">
                          <option ng-repeat="state in states">{{state}}</option>

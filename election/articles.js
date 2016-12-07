@@ -30,6 +30,9 @@ $(document).ready(function() {
                 $scope.articles='';
             }
 
+            if ($scope.selectedState == '')
+                return;
+
             $scope.daterange.d1 = getFormattedDate($scope.daterange.start_date);
             $scope.daterange.d2 = getFormattedDate($scope.daterange.end_date);
 
