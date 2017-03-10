@@ -1,0 +1,9 @@
+dj-database-url==0.3.0
+dj-static==0.0.6
+Flask==0.11.1
+Flask-Cors==3.0.2
+Flask-SQLAlchemy==2.0
+gunicorn==19.6.0
+jsonschema==2.5.1
+PyMySQL==0.7.9
+SQLAlchemy==1.0.14
